@@ -1,0 +1,25 @@
+{
+  "name": "praktikum11",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack-dev-server --mode development --open --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romcath/praktikum11.git"
+  },
+  "keywords": [],
+  "author": "Kate Romashkina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/romcath/praktikum11/issues"
+  },
+  "homepage": "https://github.com/romcath/praktikum11#readme",
+  "devDependencies": {
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  }
+}
