@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -7,7 +8,7 @@ const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   entry: {
-    main: './src/index.js'
+    main: './src/scripts/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -34,7 +35,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [(isDev ? 'style-loader' : MiniCssExtractPlugin.loader), 'css-loader', 'postcss-loader']
       }
       ]
@@ -45,7 +46,7 @@ module.exports = {
       assetNameRegExp: /\.css$/g,
       cssProcessor: require('cssnano'),
       cssProcessorPluginOptions: {
-              preset: ['default'],
+        preset: ['default'],
       },
       canPrint: true
     }),
