@@ -1,45 +1,54 @@
 import './../pages/index.css';
 
-(function iifi() {
-  const userInfo = document.querySelector('.user-info');
-  const root = document.querySelector('.root');
-  const placesList = document.querySelector('.places-list');
+import Api from '../scripts/api';
+import Card from '../blocks/place-card/card';
+import CardList from '../blocks/places-list/cardList';
+import UserInfo from '../blocks/user-info/userInfo';
+import Popup from '../blocks/popup/popup';
+import PopupAvatar from '../blocks/popup/popupAvatar';
+import PopupCard from '../blocks/popup/popupCard';
+import PopupImage from '../blocks/popup/popupImage';
+import PopupProfile from '../blocks/popup/popupProfile';
+import FormValidator from '../scripts/formValidator';
 
-  const newCardForm = document.forms.new;
-  const editProfileForm = document.forms.edit;
-  const avatarForm = document.forms.avatar;
+const userInfo = document.querySelector('.user-info');
+const root = document.querySelector('.root');
+const placesList = document.querySelector('.places-list');
 
-  const words = {
-    validationLength: 'Должно быть от 2 до 30 символов',
-    validationMissing: 'Это обязательное поле',
-    validationLink: 'Здесь должна быть ссылка'
+const newCardForm = document.forms.new;
+const editProfileForm = document.forms.edit;
+const avatarForm = document.forms.avatar;
+
+const words = {
+  validationLength: 'Должно быть от 2 до 30 символов',
+  validationMissing: 'Это обязательное поле',
+  validationLink: 'Здесь должна быть ссылка'
+}
+
+const api = new Api({
+  baseUrl: 'http://95.216.175.5/cohort7',
+  headers: {
+    authorization: '5547747b-c129-4e77-93a7-481a2a2f0413',
+    'Content-Type': 'application/json'
   }
+});
+// Инициализация классов
+const validation = new FormValidator(words);
+const popup = new Popup();
+const popupProfile = new PopupProfile(validation);
+const popupCard = new PopupCard(validation);
+const popupAvatar = new PopupAvatar(validation);
+const popupImage = new PopupImage();
+const card = new Card();
+const cardList = new CardList(card);
+const user = new UserInfo(api);
 
-  const api = new Api({
-    baseUrl: 'http://95.216.175.5/cohort7',
-    headers: {
-      authorization: '5547747b-c129-4e77-93a7-481a2a2f0413',
-      'Content-Type': 'application/json'
-    }
-  });
+listeners();
 
-  // Инициализация классов
-  const validation = new FormValidator(words);
-  const popup = new Popup();
-  const popupProfile = new PopupProfile(validation);
-  const popupCard = new PopupCard(validation);
-  const popupAvatar = new PopupAvatar(validation);
-  const popupImage = new PopupImage();
-  const card = new Card();
-  const cardList = new CardList(card);
-  const user = new UserInfo(api);
+function listeners() {
 
-  listeners();
-
-  function listeners() {
-
-    // Загружает первоначальные карточки с сервера
-    function getCards() {
+// Загружает первоначальные карточки с сервера
+  function getCards() {
       api.getInitialCards().then((result) => {
         cardList.render(document.querySelector('.places-list'), result);
       })
@@ -179,4 +188,3 @@ import './../pages/index.css';
     // Вызов функций
     getCards();
   }
-})();

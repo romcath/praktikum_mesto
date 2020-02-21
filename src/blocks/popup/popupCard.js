@@ -1,4 +1,6 @@
-class PopupCard extends Popup {
+import Popup from '../popup/popup';
+
+export default class PopupCard extends Popup {
   constructor(validation) {
     super(document.querySelector('.popup_type_new-card'));
     document.forms.new.addEventListener('input', function() {

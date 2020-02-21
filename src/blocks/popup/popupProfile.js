@@ -1,4 +1,6 @@
-class PopupProfile extends Popup {
+import Popup from '../popup/popup';
+
+export default class PopupProfile extends Popup {
   constructor(validation) {
     super(document.querySelector('.popup_type_edit-profile'));
     document.forms.edit.addEventListener('input', function() {
