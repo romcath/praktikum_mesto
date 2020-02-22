@@ -1,7 +1,7 @@
 {
   "name": "praktikum11",
-  "version": "0.0.1",
-  "description": "",
+  "version": "v0.0.2",
+  "description": "Service for placing photos",
   "main": "index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production rimraf dist && webpack --mode production",
@@ -12,7 +12,11 @@
     "type": "git",
     "url": "git+https://github.com/romcath/praktikum11.git"
   },
-  "keywords": [],
+  "keywords": [
+    "promise",
+    "js modules",
+    "placing photos"
+  ],
   "author": "Kate Romashkina",
   "license": "ISC",
   "bugs": {

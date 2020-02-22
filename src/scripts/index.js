@@ -165,8 +165,11 @@ function listeners() {
   // Обработчик изменения аватара
   function avatarChange() {
     event.preventDefault();
+
     const closeElement = event.target.closest('.popup');
-    api.patchAvatar(avatarForm.elements.avatar.value).then(() => {
+    const avatarInput = avatarForm.elements.avatar.value;
+
+    api.patchAvatar(avatarInput).then(() => {
       user.getUserInfo();
       popup.close(closeElement);
       avatarForm.reset();
