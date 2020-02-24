@@ -1,5 +1,5 @@
 # Mesto
-###### Версия проекта: v0.0.1
+###### Версия проекта: 0.0.3
 Сервис для размещения фотографий.
 ## Демо
 [https://romcath.github.io/praktikum11/](https://romcath.github.io/praktikum11/)
