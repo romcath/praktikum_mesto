@@ -1,5 +1,6 @@
-/*REVIEW. Отлично, что блок с формой для аватара отнесён к классу Popup */
-class PopupAvatar extends Popup {
+import Popup from '../popup/popup';
+
+export default class PopupAvatar extends Popup {
   constructor(validation) {
     super(document.querySelector('.popup_type_avatar'));
     document.forms.avatar.addEventListener('input', function() {

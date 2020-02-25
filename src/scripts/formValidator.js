@@ -1,8 +1,7 @@
-class FormValidator {
+export default class FormValidator {
   constructor(words) {
     this.words = words;
   }
-/*REVIEW. Можно лучше. Отлично, что свободно применяется встроенное свойство validity, но валидация сделанная "вручную" гибче и даёт больше возможностей. */
   checkInputValidity() {
     const input = event.target;
     const span = document.querySelector(`.popup__span_type_${input.getAttribute('name')}`);

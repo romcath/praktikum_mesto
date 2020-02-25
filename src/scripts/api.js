@@ -1,9 +1,8 @@
-class Api {
+export default class Api {
   constructor(options) {
     this.options = options;
   }
 
-/*REVIEW. Отлично, что применён метод ok для проверки ответа сервера и использовано Promise API/ */
   getAboutProfile() {
     return fetch(this.options.baseUrl + '/users/me/', {
       headers: this.options.headers

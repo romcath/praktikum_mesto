@@ -1,5 +1,4 @@
-/*REVIEW. Отлично, что в UserInfo организовано взаимодействие с классом api.*/
-class UserInfo {
+export default class UserInfo {
   constructor(api) {
     this.name = '';
     this.about = '';
