@@ -14,8 +14,8 @@
 5. Отображение количества лайков карточки;
 6. Постановка и снятие лайка.
 ## Демо
-[https://romcath.github.io/praktikum11_mesto/](https://romcath.github.io/praktikum11_mesto/)
-![alt-текст](https://raw.githubusercontent.com/romcath/praktikum11_mesto/master/src/images/main.jpg "Демо Mesto")
+[https://romcath.github.io/praktikum_mesto/](https://romcath.github.io/praktikum_mesto/)
+![alt-текст](https://raw.githubusercontent.com/romcath/praktikum_mesto/master/src/images/main.jpg "Демо Mesto")
 ## Установка проекта
 Клонируйте репозиторий на компьютер:
 
