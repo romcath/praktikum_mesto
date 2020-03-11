@@ -19,7 +19,7 @@
 ## Установка проекта
 Клонируйте репозиторий на компьютер:
 
-```git clone https://github.com/romcath/praktikum11.git```
+```git clone https://github.com/romcath/praktikum_mesto.git```
 
 
 Установите зависисмости:
