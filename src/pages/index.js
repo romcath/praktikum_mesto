@@ -1,6 +1,6 @@
 import './../pages/index.css';
 
-import Api from '../scripts/api';
+import Api from '../components/api';
 import Card from '../blocks/place-card/card';
 import CardList from '../blocks/places-list/cardList';
 import UserInfo from '../blocks/user-info/userInfo';
@@ -9,7 +9,7 @@ import PopupAvatar from '../blocks/popup/popupAvatar';
 import PopupCard from '../blocks/popup/popupCard';
 import PopupImage from '../blocks/popup/popupImage';
 import PopupProfile from '../blocks/popup/popupProfile';
-import FormValidator from '../scripts/formValidator';
+import FormValidator from '../components/formValidator';
 
 // Переменные
 const userInfo = document.querySelector('.user-info');
