@@ -1,5 +1,17 @@
 .user-info__job {
-  margin: 20px 0 0 0;
-  font-size: 20px;
-  line-height: 25px;
+  margin: 10px 0 0 0;
+  font-size: 18px;
+  line-height: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  justify-self: left;
 }
+
+@media screen and (max-width: 980px) {
+  .user-info__job {
+    justify-self: center;
+    font-size: 14px;
+    line-height: 17px;
+  }
+} 

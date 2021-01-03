@@ -1,10 +1,19 @@
-@import url(../vendor/fonts.css);
-@import url(../blocks/root/root.css);
-@import url(../blocks/header/header.css);
-@import url(../blocks/logo/logo.css);
-@import url(../blocks/profile/profile.css);
-@import url(../blocks/button/button.css);
-@import url(../blocks/user-info/user-info.css);
+@import url('../vendor/normalize.css');
+@import url('../vendor/fonts.css');
+@import url('../blocks/root/root.css');
+@import url('../blocks/root/__section/root__section.css');
+@import url('../blocks/header/header.css');
+@import url('../blocks/logo/logo.css');
+@import url('../blocks/button/button.css');
+
+@import url('../blocks/user-info/user-info.css');
+@import url('../blocks/user-info/__photo/user-info__photo.css');
+@import url('../blocks/user-info/__data/user-info__data.css');
+@import url('../blocks/user-info/__name/user-info__name.css');
+@import url('../blocks/user-info/__job/user-info__job.css');
+@import url('../blocks/user-info/__button-edit/user-info__button-edit.css');
+@import url('../blocks/user-info/__button-add/user-info__button-add.css');
+
 @import url(../blocks/places-list/places-list.css);
 @import url(../blocks/place-card/place-card.css);
 @import url(../blocks/popup/popup.css);

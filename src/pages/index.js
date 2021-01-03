@@ -26,10 +26,12 @@ const words = {
   validationLink: 'Здесь должна быть ссылка'
 }
 
-const serverUrl =
-  NODE_ENV === "development"
-    ? 'http://praktikum.tk/cohort7'
-    : 'https://praktikum.tk/cohort7';
+// const serverUrl =
+//   NODE_ENV === "development"
+//     ? 'http://nomoreparties.co/cohort7'
+//     : 'https://nomoreparties.co/cohort7';
+
+const serverUrl = 'https://nomoreparties.co/cohort7';
 
 const api = new Api({
   baseUrl: serverUrl,

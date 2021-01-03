@@ -1,9 +1,7 @@
-@import url(./__section/root__section.css);
-
 .root {
-  background-color: black;
+  background-color: #000;
   min-height: 100vh;
-  font-family: 'Inter';
+  font-family: Inter, Verdana, Geneva, Tahoma, sans-serif;
   padding-bottom: 194px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
