@@ -14,8 +14,17 @@
 @import url('../blocks/user-info/__button-edit/user-info__button-edit.css');
 @import url('../blocks/user-info/__button-add/user-info__button-add.css');
 
-@import url(../blocks/places-list/places-list.css);
-@import url(../blocks/place-card/place-card.css);
+@import url('../blocks/places-list/places-list.css');
+@import url('../blocks/place-card/place-card.css');
+@import url('../blocks/place-card/__image/place-card__image.css');
+@import url('../blocks/place-card/__delete-icon/place-card__delete-icon.css');
+@import url('../blocks/place-card/__delete-icon/_enable/place-card__delete-icon_enable.css');
+@import url('../blocks/place-card/__description/place-card__description.css');
+@import url('../blocks/place-card/__name/place-card__name.css');
+@import url('../blocks/place-card/__like-icon/place-card__like-icon.css');
+@import url('../blocks/place-card/__like/place-card__like.css');
+@import url('../blocks/place-card/__like-counter/place-card__like-counter.css');
+
 @import url(../blocks/popup/popup.css);
 
 body {

@@ -1,7 +1,5 @@
-@import url(./_enable/place-card__delete-icon_enable.css);
-
 .place-card__delete-icon {
-  background: url(../../../images/trash-icon.svg) center no-repeat;
+  background: url('../../../images/trash-icon.svg') center no-repeat;
   background-color: transparent;
   border: none;
   width: 18px;
@@ -11,4 +9,9 @@
   right: 15px;
   cursor: pointer;
   display: none;
+  transition: opacity .5s ease;
+}
+
+.place-card__delete-icon:hover {
+  opacity: .7;
 }
