@@ -2,13 +2,13 @@
   background-color: #000;
   min-height: 100vh;
   font-family: Inter, Verdana, Geneva, Tahoma, sans-serif;
-  padding-bottom: 194px;
+  padding-bottom: 60px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 980px) {
   .root {
-    padding-bottom: 140px;
+    padding-bottom: 36px;
   }
 }
