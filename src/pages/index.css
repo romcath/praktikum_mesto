@@ -27,7 +27,22 @@
 
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__copyright/footer__copyright.css');
-@import url(../blocks/popup/popup.css);
+
+@import url('../blocks/popup/popup.css');
+@import url('../blocks/popup/_is-opened/popup_is-opened.css');
+@import url('../blocks/popup/__content/popup__content.css');
+@import url('../blocks/popup/__close/popup__close.css');
+@import url('../blocks/popup/__title/popup__title.css');
+@import url('../blocks/popup/__form/popup__form.css');
+@import url('../blocks/popup/__label/popup__label.css');
+@import url('../blocks/popup/__input/popup__input.css');
+@import url('../blocks/popup/__button/popup__button.css');
+@import url('../blocks/popup/__button/_enabled/popup__button_enabled.css');
+@import url('../blocks/popup/__button/_size/popup__button_size_small.css');
+@import url('../blocks/popup/_is-opened/popup_is-opened.css');
+@import url('../blocks/popup/__image/popup__image.css');
+@import url('../blocks/popup/__container/popup__container.css');
+@import url('../blocks/popup/__span/popup__span.css');
 
 body {
   background-color: #000;

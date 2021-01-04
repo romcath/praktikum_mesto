@@ -30,30 +30,39 @@
     </footer>
     <div class="popup popup_type_new-card">
       <div class="popup__content">
-        <img src="<%=require('./images/close.svg')>" alt="" class="popup__close">
+        <button type="button" class="button popup__close" aria-label="Закрыть окно"></button>
         <h3 class="popup__title">Новое место</h3>
         <form class="popup__form" name="new" novalidate>
-          <input type="text" name="title" class="popup__input popup__input_type_title" placeholder="Название"
-            minlength="2" maxlength="30" required>
-          <span class="popup__span popup__span_type_title" for="title"></span>
-          <input type="text" name="link" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку"
-            pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" required>
-          <span class="popup__span popup__span_type_link" for="link"></span>
-          <button type="submit" name="submit" class="button popup__button popup__button_new-card" disabled>+</button>
+          <label class="popup__label">
+            <input type="text" name="title" class="popup__input popup__input_type_title" placeholder="Название"
+              minlength="2" maxlength="30" required>
+            <span class="popup__span popup__span_type_title"></span>
+          </label>
+          <label class="popup__label">
+            <input type="url" name="link" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку"
+              pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" required>
+            <span class="popup__span popup__span_type_link"></span>
+          </label>
+          <button type="submit" name="submit"
+            class="button popup__button popup__button_size_small popup__button_new-card" disabled>Создать</button>
         </form>
       </div>
     </div>
     <div class="popup popup_type_edit-profile">
       <div class="popup__content">
-        <img src="<%=require('./images/close.svg')>" alt="" class="popup__close">
+        <button type="button" class="button popup__close" aria-label="Закрыть окно"></button>
         <h3 class="popup__title">Редактировать профиль</h3>
         <form class="popup__form" name="edit" novalidate>
-          <input type="text" name="name" class="popup__input popup__input_type_name" placeholder="Имя" minlength="2"
-            maxlength="30" required>
-          <span class="popup__span popup__span_type_name" for="name"></span>
-          <input type="text" name="about" class="popup__input popup__input_type_about" placeholder="О себе"
-            minlength="2" maxlength="30" required>
-          <span class="popup__span popup__span_type_about" for="about"></span>
+          <label class="popup__label">
+            <input type="text" name="name" class="popup__input popup__input_type_name" placeholder="Имя" minlength="2"
+              maxlength="30" required>
+            <span class="popup__span popup__span_type_name"></span>
+          </label>
+          <label class="popup__label">
+            <input type="text" name="about" class="popup__input popup__input_type_about" placeholder="О себе"
+              minlength="2" maxlength="30" required>
+            <span class="popup__span popup__span_type_about"></span>
+          </label>
           <button type="submit" name="submit"
             class="button popup__button popup__button_size_small popup__button_enabled">Сохранить</button>
         </form>
@@ -61,12 +70,14 @@
     </div>
     <div class="popup popup_type_avatar">
       <div class="popup__content">
-        <img src="<%=require('./images/close.svg')>" alt="" class="popup__close">
+        <button type="button" class="button popup__close" aria-label="Закрыть окно"></button>
         <h3 class="popup__title">Обновить аватар</h3>
         <form class="popup__form" name="avatar" novalidate>
-          <input type="text" name="avatar" class="popup__input popup__input_type_avatar" placeholder="Ссылка на аватар"
-            pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" required>
-          <span class="popup__span popup__span_type_avatar" for="avatar"></span>
+          <label class="popup__label">
+            <input type="url" name="avatar" class="popup__input popup__input_type_avatar" placeholder="Ссылка на аватар"
+              pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" required>
+            <span class="popup__span popup__span_type_avatar"></span>
+          </label>
           <button type="submit" name="submit" class="button popup__button popup__button_size_small popup__button_avatar"
             disabled>Сохранить</button>
         </form>
@@ -75,10 +86,10 @@
     <div class="popup popup_type_image">
       <div class="popup__container">
         <img src="" alt="" class="popup__image">
-        <img src="<%=require('./images/close.svg')>" alt="" class="popup__close">
-        <div>
-        </div>
+        <!-- <img src="<%=require('./images/close.svg')>" alt="" class="popup__close"> -->
       </div>
+    </div>
+  </div>
 </body>
 
 </html>
