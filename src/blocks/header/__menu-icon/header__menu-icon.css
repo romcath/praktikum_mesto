@@ -1,0 +1,17 @@
+.header__menu-icon {
+  width: 24px;
+  height: 18px;
+  background: center / contain no-repeat url('../../../images/menu.svg');
+  transition: opacity .5s ease;
+  display: none;
+}
+
+.header__menu-icon:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 540px) {
+  .header__menu-icon {
+    display: block;
+  }
+}

@@ -3,11 +3,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(84, 84, 84, .7);
+  position: relative;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  border-bottom: 1px solid rgba(84 ,84, 84, .7);
+  top: 119px;
+  left: 0;
+  width: 100%;
 }
 
 @media screen and (max-width: 980px) {
   .header {
     min-height: 88px;
+  }
+
+  .header::before {
+    top: 88px;
   }
 }
