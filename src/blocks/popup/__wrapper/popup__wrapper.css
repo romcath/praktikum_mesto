@@ -1,0 +1,16 @@
+.popup__wrapper {
+  padding: 60px 36px;
+  width: 430px;
+  background-color: #fff;
+  border-radius: 10px;
+  position: relative;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+@media screen and (max-width: 540px) {
+  .popup__wrapper {
+    width: 280px;
+    padding: 50px 18px;
+  }
+}

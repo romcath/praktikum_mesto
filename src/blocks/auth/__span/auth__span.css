@@ -1,0 +1,9 @@
+.auth__span {
+  display: block;
+  color: #ff0000;
+  font-size: 12px;
+  line-height: 15px;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+}
