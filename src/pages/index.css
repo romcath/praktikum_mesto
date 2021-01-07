@@ -6,9 +6,9 @@
 @import url('../blocks/root/__transform/root__transform.css');
 @import url('../blocks/header/header.css');
 @import url('../blocks/header/__menu-icon/header__menu-icon.css');
+@import url('../blocks/header/__menu-icon/_close/header__menu-icon_close.css');
 @import url('../blocks/logo/logo.css');
 @import url('../blocks/menu/menu.css');
-@import url('../blocks/menu/_is-opened/menu_is-opened.css');
 @import url('../blocks/menu/_type/menu_type_mobile.css');
 @import url('../blocks/menu/__button/menu__button.css');
 @import url('../blocks/menu/__button/_inactive/menu__button_inactive.css');

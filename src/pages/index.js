@@ -181,6 +181,25 @@ function listeners() {
     });
   }
 
+  const mobileMenuButton = document.querySelector('.header__menu-icon');
+  mobileMenuButton.addEventListener('click', openMenuMobile);
+
+  function openMenuMobile() {
+    root.classList.add('root__transform');
+    document.querySelector('.menu').classList.add('menu_type_mobile');
+    mobileMenuButton.classList.add('header__menu-icon_close');
+    mobileMenuButton.removeEventListener('click', openMenuMobile);
+    document.querySelector('.header__menu-icon_close').addEventListener('click', closeMenuMobile);
+  }
+
+  function closeMenuMobile() {
+    root.classList.remove('root__transform');
+    document.querySelector('.menu').classList.remove('menu_type_mobile');
+    document.querySelector('.header__menu-icon_close').removeEventListener('click', openMenuMobile);
+    mobileMenuButton.classList.remove('header__menu-icon_close');
+    mobileMenuButton.addEventListener('click', openMenuMobile);
+  }
+
   // Слушатели событий
   userInfo.addEventListener('click', openPopup);
   root.addEventListener('click', popupClose);
@@ -189,6 +208,7 @@ function listeners() {
   newCardForm.addEventListener('submit', appendCard);
   editProfileForm.addEventListener('submit', editProfile);
   avatarForm.addEventListener('submit', avatarChange);
+
   
   // Вызов функций
   getCards();

@@ -1,4 +1,5 @@
 .menu_type_mobile {
+  display: flex;
   position: fixed;
   top: -143px;
   left: 0;
