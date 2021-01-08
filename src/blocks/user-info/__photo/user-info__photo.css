@@ -3,12 +3,22 @@
   height: 120px;
   min-width: 120px;
   border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
-  transition: opacity .3s linear;
+  background: #2a2c2f center / cover no-repeat;
+  position: relative;
+  cursor: pointer;
 }
 
-.user-info__photo:hover {
-  cursor: pointer;
-  opacity: .8;
+.user-info__photo::before {
+  content: '';
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: background .5s ease;
+}
+
+.user-info__photo:hover::before {
+  background: rgba(0, 0, 0, .8) center / 26px 26px no-repeat url('../../../images/edit-avatar.svg');
 }

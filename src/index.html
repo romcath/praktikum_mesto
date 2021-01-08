@@ -20,7 +20,7 @@
     </header>
     <main class="content">
       <section class="user-info root__section">
-        <img src="" alt="Аватар" class="user-info__photo">
+        <div class="user-info__photo"></div>
         <div class="user-info__data">
           <h1 class="user-info__name"></h1>
           <button type="button" class="button user-info__button-edit" aria-label="Редактировать профиль"></button>
@@ -39,14 +39,14 @@
         <h3 class="popup__title">Новое место</h3>
         <form class="popup__form" name="new" novalidate>
           <label class="popup__label">
-            <input type="text" name="title" class="popup__input popup__input_type_title" placeholder="Название"
+            <input type="text" id="place-name" name="name" class="popup__input popup__input_type_title" placeholder="Название"
               minlength="2" maxlength="30" required>
-            <span class="popup__span popup__span_type_title"></span>
+            <span class="popup__span popup__span_type_title" id="place-name-error"></span>
           </label>
           <label class="popup__label">
-            <input type="url" name="link" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку"
+            <input type="url" id="place-link" name="link" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку"
               pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" required>
-            <span class="popup__span popup__span_type_link"></span>
+            <span class="popup__span popup__span_type_link" id="place-link-error"></span>
           </label>
           <button type="submit" name="submit"
             class="button popup__button popup__button_size_small popup__button_new-card" disabled>Создать</button>
@@ -59,14 +59,14 @@
         <h3 class="popup__title">Редактировать профиль</h3>
         <form class="popup__form" name="edit" novalidate>
           <label class="popup__label">
-            <input type="text" name="name" class="popup__input popup__input_type_name" placeholder="Имя" minlength="2"
+            <input type="text" id="name" name="name" class="popup__input popup__input_type_name" placeholder="Имя" minlength="2"
               maxlength="30" required>
-            <span class="popup__span popup__span_type_name"></span>
+            <span class="popup__span popup__span_type_name" id="name-error"></span>
           </label>
           <label class="popup__label">
-            <input type="text" name="about" class="popup__input popup__input_type_about" placeholder="О себе"
+            <input type="text" id="description" name="description" class="popup__input popup__input_type_about" placeholder="О себе"
               minlength="2" maxlength="30" required>
-            <span class="popup__span popup__span_type_about"></span>
+            <span class="popup__span popup__span_type_about" id="description-error"></span>
           </label>
           <button type="submit" name="submit"
             class="button popup__button popup__button_size_small popup__button_enabled">Сохранить</button>
@@ -79,9 +79,9 @@
         <h3 class="popup__title">Обновить аватар</h3>
         <form class="popup__form" name="avatar" novalidate>
           <label class="popup__label">
-            <input type="url" name="avatar" class="popup__input popup__input_type_avatar" placeholder="Ссылка на аватар"
+            <input type="url" id="url" name="avatar" class="popup__input popup__input_type_avatar" placeholder="Ссылка на аватар"
               pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" required>
-            <span class="popup__span popup__span_type_avatar"></span>
+            <span class="popup__span popup__span_type_avatar" id="url-error"></span>
           </label>
           <button type="submit" name="submit" class="button popup__button popup__button_size_small popup__button_avatar"
             disabled>Сохранить</button>
@@ -92,7 +92,7 @@
       <div class="popup__container">
         <button type="button" class="button popup__close" aria-label="Закрыть окно"></button>
         <img src="" alt="" class="popup__image">
-        <p class="popup__caption">Подпись</p>
+        <p class="popup__caption"></p>
       </div>
     </div>
     <div class="popup popup_type_remove-card">
@@ -122,8 +122,8 @@
       <h3 class="auth__title">Регистрация</h3>
       <form class="auth__form" name="signup" novalidate>
         <label class="auth__label">
-          <input type="text" name="signup" class="auth__input auth__input_type_email" placeholder="Email"
-            minlength="2" maxlength="30" required>
+          <input type="text" name="signup" class="auth__input auth__input_type_email" placeholder="Email" minlength="2"
+            maxlength="30" required>
           <span class="auth__span auth__span_type_email"></span>
         </label>
         <label class="auth__label">
@@ -141,8 +141,8 @@
       <h3 class="auth__title">Вход</h3>
       <form class="auth__form" name="login" novalidate>
         <label class="auth__label">
-          <input type="text" name="signup" class="auth__input auth__input_type_email" placeholder="Email"
-            minlength="2" maxlength="30" required>
+          <input type="text" name="signup" class="auth__input auth__input_type_email" placeholder="Email" minlength="2"
+            maxlength="30" required>
           <span class="auth__span auth__span_type_email"></span>
         </label>
         <label class="auth__label">
@@ -156,6 +156,19 @@
         </p>
       </form>
     </div>
+    <template class="place-card-template">
+      <div class="place-card">
+        <div class='place-card__image'></div>
+        <button type="button" class='place-card__delete-icon'></button>
+        <div class='place-card__description'>
+          <h3 class='place-card__name'></h3>
+          <div class='place-card__like'>
+            <button type="button" class='place-card__like-icon'></button>
+            <span class='place-card__like-counter'>0</span>
+          </div>
+        </div>
+      </div>
+    </template>
   </div>
 </body>
 
