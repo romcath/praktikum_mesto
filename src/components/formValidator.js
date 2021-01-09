@@ -43,9 +43,7 @@ export default class FormValidator {
   }
 
   _getInvalidInput(inputList) {
-    return inputList.some((inputElement) => {
-      return !inputElement.validity.valid;
-    });
+    return inputList.some((inputElement) => !inputElement.validity.valid);
   }
 
   _setEventListeners() {
@@ -62,8 +60,10 @@ export default class FormValidator {
 
   resetSpans() {
     this._spanList = Array.from(this._element.querySelectorAll('.popup__span'));
-    this._inputList.forEach(item => item.classList.remove('popup__input_type_error'));
-    this._spanList.forEach(item => item.textContent = '');
+    this._inputList.forEach((item) => item.classList.remove('popup__input_type_error'));
+    this._spanList.forEach((item) => {
+      item.textContent = '';
+    });
   }
 
   enableValidation() {

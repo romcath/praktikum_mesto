@@ -1,10 +1,8 @@
+/* eslint-disable import/prefer-default-export */
 export const renderLoading = (isLoading, buttonElement) => {
   if (isLoading) {
     buttonElement.textContent = 'Загрузка...';
-    return;
-  }
-  else {
+  } else {
     buttonElement.textContent = 'Сохранить';
-    return
   }
 };

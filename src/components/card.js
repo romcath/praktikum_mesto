@@ -1,5 +1,5 @@
 export default class Card {
-  constructor({cardData, handleCardClick, handleLikeClick, handleDeleteIconClick, cardSelector}) {
+  constructor({ cardData, handleCardClick, handleLikeClick, handleDeleteIconClick, cardSelector }) {
     this._name = cardData.name;
     this._link = cardData.link;
     this._likes = cardData.likes;
@@ -7,7 +7,7 @@ export default class Card {
     this._ownerId = cardData.owner._id;
     this._cardId = cardData._id;
     this._cardSelector = cardSelector;
-    
+
     this._handleCardClick = handleCardClick;
     this._handleLikeClick = handleLikeClick;
     this._handleDeleteIconClick = handleDeleteIconClick;
@@ -17,8 +17,8 @@ export default class Card {
     this._element = this._getCardElement();
     this._setEventListeners();
     this._updateLikes();
-    
-    this._element.querySelector('.place-card__name').textContent =  this._name;
+
+    this._element.querySelector('.place-card__name').textContent = this._name;
     this._element.querySelector('.place-card__image').style.backgroundImage = `url(${this._link})`;
     this._element.querySelector('.place-card__delete-icon')
       .classList.add(this._userId === this._ownerId ? 'place-card__delete-icon_enable' : 'place-card__delete-icon');
@@ -44,11 +44,10 @@ export default class Card {
   _updateLikes() {
     this._element.querySelector('.place-card__like-counter').textContent = `${this._likes.length}`;
     this._likeButton = this._element.querySelector('.place-card__like-icon');
-   
+
     if (this.isLiked()) {
       this._likeButton.classList.add('place-card__like-icon_liked');
-    }
-    else {
+    } else {
       this._likeButton.classList.remove('place-card__like-icon_liked');
     }
   }
@@ -63,12 +62,12 @@ export default class Card {
     this._element.querySelector('.place-card__image')
       .addEventListener('click', () => this._handleCardClick({
         caption: this._name,
-        src: this._link
+        src: this._link,
       }));
   }
 
   isLiked() {
-    return Boolean(this._likes.find(item => item._id === this._userId));
+    return Boolean(this._likes.find((item) => item._id === this._userId));
   }
 
   setLike(data) {

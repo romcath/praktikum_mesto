@@ -1,3 +1,4 @@
+/* eslint-disable prefer-promise-reject-errors */
 export default class Api {
   constructor(options) {
     this.options = options;
@@ -9,44 +10,44 @@ export default class Api {
 
   getCardList() {
     return fetch(`${this.options.baseUrl}/cards`, {
-      headers: this.options.headers
+      headers: this.options.headers,
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
+      .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
   }
 
   getUserInfo() {
     return fetch(`${this.options.baseUrl}/users/me`, {
-      headers: this.options.headers
+      headers: this.options.headers,
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
+      .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
   }
 
   changeLikeCard(cardId, like) {
     return fetch(`${this.options.baseUrl}/cards/like/${cardId}`, {
       method: like ? 'DELETE' : 'PUT',
-      headers: this.options.headers
+      headers: this.options.headers,
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
+      .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
   }
 
   removeCard(cardId) {
     return fetch(`${this.options.baseUrl}/cards/${cardId}`, {
       method: 'DELETE',
-      headers: this.options.headers
+      headers: this.options.headers,
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
+      .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
   }
 
-  addCard({name, link}) {
+  addCard({ name, link }) {
     return fetch(`${this.options.baseUrl}/cards`, {
       method: 'POST',
       headers: this.options.headers,
       body: JSON.stringify({
-        name: name,
-        link: link
-      })
+        name,
+        link,
+      }),
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
+      .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
   }
 
   setUserInfo({ name, about }) {
@@ -54,11 +55,11 @@ export default class Api {
       method: 'PATCH',
       headers: this.options.headers,
       body: JSON.stringify({
-        name: name,
-        about: about
-      })
+        name,
+        about,
+      }),
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
+      .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
   }
 
   setUserAvatar({ avatar }) {
@@ -66,9 +67,9 @@ export default class Api {
       method: 'PATCH',
       headers: this.options.headers,
       body: JSON.stringify({
-        avatar: avatar
-      })
+        avatar,
+      }),
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
+      .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
   }
 }
