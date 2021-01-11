@@ -6,13 +6,9 @@
   font-size: 18px;
   line-height: 22px;
   text-align: center;
-  color: #000;
+  color: rgba(0, 0, 0, .2);
   margin-top: 216px;
-  transition: opacity .5s ease;
-}
-
-.auth__button:hover {
-  opacity: .85;
+  cursor: default;
 }
 
 @media screen and (max-width: 540px) {

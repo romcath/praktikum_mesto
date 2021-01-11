@@ -1,6 +1,11 @@
 // Константы
 const ESC_KEYCODE = 27;
 
+const MAIN_CONTENT = document.querySelector('.content');
+
+// Шапка
+const HEADER_ELEMENT = document.querySelector('.header');
+
 // Попапы
 const PLACES_WRAP = document.querySelector('.places-list');
 const EDIT_FORM_MODAL_WINDOW = document.querySelector('.popup_type_edit-profile');
@@ -8,6 +13,8 @@ const CARD_FORM_MODAL_WINDOW = document.querySelector('.popup_type_new-card');
 const IMAGE_MODAL_WINDOW = document.querySelector('.popup_type_image');
 const AVATAR_MODAL_WINDOW = document.querySelector('.popup_type_avatar');
 const REMOVE_MODAL_WINDOW = document.querySelector('.popup_type_remove-card');
+const SUCCESS_MODAL_WINDOW = document.querySelector('.popup_type_success');
+const FAIL_MODAL_WINDOW = document.querySelector('.popup_type_fail');
 
 // Кнопки
 const OPEN_EDIT_FORM_BUTTON = document.querySelector('.user-info__button-edit');
@@ -33,6 +40,7 @@ const INPUT_LIST_AVATAR = Array.from(AVATAR_MODAL_WINDOW.querySelectorAll('.popu
 const BUTTON_SUBMIT_AVATAR = AVATAR_MODAL_WINDOW.querySelector('.popup__button');
 
 const CARD_SELECTOR = '.place-card-template';
+const SIGNUP_SELECTOR = '.signup-template';
 const DEFAULT_FORM_CONFIG = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
@@ -40,6 +48,15 @@ const DEFAULT_FORM_CONFIG = {
   activeButtonClass: 'popup__button_enabled',
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__span_visible',
+};
+
+const DEFAULT_AUTH_CONFIG = {
+  formSelector: '.auth__form',
+  inputSelector: '.auth__input',
+  submitButtonSelector: '.auth__button',
+  activeButtonClass: 'auth__button_enabled',
+  inputErrorClass: 'auth__input_type_error',
+  errorClass: 'auth__span_visible',
 };
 
 export {
@@ -66,4 +83,10 @@ export {
   AVATAR_MODAL_WINDOW,
   INPUT_LIST_AVATAR,
   BUTTON_SUBMIT_AVATAR,
+  HEADER_ELEMENT,
+  SIGNUP_SELECTOR,
+  DEFAULT_AUTH_CONFIG,
+  MAIN_CONTENT,
+  SUCCESS_MODAL_WINDOW,
+  FAIL_MODAL_WINDOW,
 };

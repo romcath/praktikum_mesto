@@ -1,0 +1,9 @@
+.auth__button_enabled {
+  color: #000;
+  transition: opacity .5s ease;
+}
+
+.auth__button_enabled:hover {
+  opacity: .85;
+  cursor: pointer;
+}

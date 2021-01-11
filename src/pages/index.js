@@ -24,13 +24,23 @@ import {
   AVATAR_MODAL_WINDOW,
   INPUT_LIST_AVATAR,
   BUTTON_SUBMIT_AVATAR,
+  HEADER_ELEMENT,
+  SIGNUP_SELECTOR,
+  DEFAULT_AUTH_CONFIG,
+  MAIN_CONTENT,
+  SUCCESS_MODAL_WINDOW,
+  FAIL_MODAL_WINDOW,
 } from '../utils/constants';
 import { renderLoading } from '../utils/utils';
 
 import Api from '../components/api';
+// import Auth from '../components/auth';
+import Header from '../components/header';
+// import Register from '../components/register';
 import Card from '../components/card';
 import FormValidator from '../components/formValidator';
 import Section from '../components/section';
+import Popup from '../components/popup';
 import PopupWithForm from '../components/popupWithForm';
 import UserInfo from '../components/user-info';
 import PopupWithImage from '../components/popupWithImage';
@@ -40,6 +50,10 @@ import PopupWithFormSubmit from '../components/popupWithFormSubmit';
 let userId = null;
 
 // Инициализация классов
+// const auth = new Auth();
+
+// const header = new Header(HEADER_ELEMENT);
+
 const api = new Api({
   baseUrl: 'https://nomoreparties.co/cohort7',
   headers: {
@@ -168,19 +182,42 @@ const changeAvatarPopup = new PopupWithForm({
 });
 changeAvatarPopup.setEventListeners();
 
-api.getAppInfo()
-  .then(([cardsArray, userData]) => {
-    userId = userData._id;
+const authList = new Section({
+  container: MAIN_CONTENT,
+});
 
-    userInfo.setUserInfo({
-      name: userData.name,
-      description: userData.about,
-      avatar: userData.avatar,
-    });
+const popupSuccess = new Popup(SUCCESS_MODAL_WINDOW);
+popupSuccess.setEventListeners();
+const popupFail = new Popup(FAIL_MODAL_WINDOW);
+popupFail.setEventListeners();
 
-    cardList.renderItems(cardsArray);
-  })
-  .catch((err) => console.log(`Ошибка загрузки данных: ${err}`));
+// const register = new Register({
+//   signupSelector: SIGNUP_SELECTOR,
+//   handleFormSubmit: (data) => {
+//     api.signup(data)
+//       .then(() => {
+//         popupSuccess.open();
+//       })
+//       .catch((err) => {
+//         popupFail.open();
+//         console.log(`Ошибка регистрации пользователя: ${err}`);
+//       });
+//   },
+// });
+
+// const handleLoginState = () => {
+//   if (auth.getLoginState()) {
+//     // загрузить основной контент
+//   } else {
+//     authList.addItem(register.getSignup());
+
+//     const singupWindow = document.querySelector('.auth_type_signup');
+//     const signupFormValidator = new FormValidator(DEFAULT_AUTH_CONFIG, singupWindow);
+//     signupFormValidator.enableValidation();
+
+//     header.render(false);
+//   }
+// };
 
 // Мобильное меню
 const mobileMenuButton = document.querySelector('.header__menu-icon');
@@ -224,3 +261,21 @@ OPEN_AVATAR_FORM_BUTTON.addEventListener('click', () => {
   avatarFormValidator.resetSpans();
   changeAvatarPopup.open();
 });
+
+api.getAppInfo()
+  .then(([cardsArray, userData]) => {
+    // header.render(true, userData.email);
+
+    userId = userData._id;
+
+    userInfo.setUserInfo({
+      name: userData.name,
+      description: userData.about,
+      avatar: userData.avatar,
+    });
+
+    cardList.renderItems(cardsArray);
+  })
+  .catch((err) => console.log(`Ошибка загрузки данных: ${err}`));
+
+// handleLoginState();

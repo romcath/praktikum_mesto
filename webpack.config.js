@@ -6,10 +6,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   entry: {
     main: './src/pages/index.js',
+    auth: './src/pages/auth.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js',
+    filename: '[name]/[name].[hash].js',
     publicPath: '',
   },
   mode: 'development',
@@ -17,7 +18,6 @@ module.exports = {
     contentBase: path.resolve(__dirname, './dist'),
     compress: true,
     port: 8080,
-    open: true,
   },
   module: {
     rules: [
@@ -43,6 +43,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      filename: 'index.html',
+      chunks: ['main'],
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/auth.html',
+      filename: 'auth.html',
+      chunks: ['auth'],
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),

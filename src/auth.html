@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mesto</title>
+</head>
+
+<div class="root">
+  <header class="header root__section">
+    <img src="<%=require('./images/logo.svg')%>" alt="Логотип" class="logo">
+    <button type="button" class="button header__menu-icon"></button>
+    <div class="menu">
+      <p class="menu__email"></p>
+      <button type="button" class="button menu__button menu__button_inactive"></button>
+    </div>
+  </header>
+  <main class="content">
+    <section class="auth auth_type_signup">
+      <h3 class="auth__title">Регистрация</h3>
+      <form class="auth__form" name="signup" novalidate>
+        <label class="auth__label">
+          <input type="email" id="signup-email" name="signup" class="auth__input auth__input_type_email"
+            placeholder="Email" pattern="^[\w\-\.]{2,}@([\w\-]{1,63}\.)*[\w\-]{2,63}\.[a-z]{2,}$" required>
+          <span class="auth__span auth__span_type_email" id="signup-email-error"></span>
+        </label>
+        <label class="auth__label">
+          <input type="password" id="signup-password" name="password" class="auth__input auth__input_type_password"
+            minlength="8" placeholder="Пароль" required>
+          <span class="auth__span auth__span_type_password" id="signup-password-error"></span>
+        </label>
+        <button type="submit" name="submit" class="button auth__button">Зарегистрироваться</button>
+        <p class="auth__text">Уже зарегистрированы?
+          <a class="auth__link" href="#">Войти</a>
+        </p>
+      </form>
+    </section>
+  </main>
+  <footer class="footer root__section">
+    <p class="footer__copyright">&copy; 2020 Катя Ромашкина</p>
+  </footer>
+  
+  <div class="popup popup_type_success">
+    <div class="popup__wrapper">
+      <button type="button" class="button popup__close" aria-label="Закрыть окно"></button>
+      <div class="popup__icon popup__icon_type_success"></div>
+      <h3 class="popup__title">Вы успешно зарегистрировались!</h3>
+    </div>
+  </div>
+  <div class="popup popup_type_fail">
+    <div class="popup__wrapper">
+      <button type="button" class="button popup__close" aria-label="Закрыть окно"></button>
+      <div class="popup__icon popup__icon_type_fail"></div>
+      <h3 class="popup__title">Что-то пошло не так! Попробуйте ещё раз.</h3>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

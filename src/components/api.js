@@ -1,7 +1,21 @@
 /* eslint-disable prefer-promise-reject-errors */
 export default class Api {
   constructor(options) {
-    this.options = options;
+    this._options = options;
+  }
+
+  signup({ email, password }) {
+    return fetch(`${this._options.baseUrl}/signup`, {
+      redirect: 'follow',
+      credentials: 'include',
+      method: 'POST',
+      headers: this._options.headers,
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    })
+      .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
   }
 
   getAppInfo() {
@@ -9,39 +23,49 @@ export default class Api {
   }
 
   getCardList() {
-    return fetch(`${this.options.baseUrl}/cards`, {
-      headers: this.options.headers,
+    return fetch(`${this._options.baseUrl}/cards`, {
+      // redirect: 'follow',
+      // credentials: 'include',
+      headers: this._options.headers,
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
   }
 
   getUserInfo() {
-    return fetch(`${this.options.baseUrl}/users/me`, {
-      headers: this.options.headers,
+    return fetch(`${this._options.baseUrl}/users/me`, {
+      // redirect: 'follow',
+      // credentials: 'include',
+      headers: this._options.headers,
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
   }
 
   changeLikeCard(cardId, like) {
-    return fetch(`${this.options.baseUrl}/cards/like/${cardId}`, {
+    return fetch(`${this._options.baseUrl}/cards/like/${cardId}`, {
       method: like ? 'DELETE' : 'PUT',
-      headers: this.options.headers,
+      // redirect: 'follow',
+      // credentials: 'include',
+      headers: this._options.headers,
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
   }
 
   removeCard(cardId) {
-    return fetch(`${this.options.baseUrl}/cards/${cardId}`, {
+    return fetch(`${this._options.baseUrl}/cards/${cardId}`, {
       method: 'DELETE',
-      headers: this.options.headers,
+      // redirect: 'follow',
+      // credentials: 'include',
+      headers: this._options.headers,
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
   }
 
   addCard({ name, link }) {
-    return fetch(`${this.options.baseUrl}/cards`, {
+    return fetch(`${this._options.baseUrl}/cards`, {
       method: 'POST',
-      headers: this.options.headers,
+      // redirect: 'follow',
+      // credentials: 'include',
+      headers: this._options.headers,
       body: JSON.stringify({
         name,
         link,
@@ -51,9 +75,11 @@ export default class Api {
   }
 
   setUserInfo({ name, about }) {
-    return fetch(`${this.options.baseUrl}/users/me`, {
+    return fetch(`${this._options.baseUrl}/users/me`, {
       method: 'PATCH',
-      headers: this.options.headers,
+      // redirect: 'follow',
+      // credentials: 'include',
+      headers: this._options.headers,
       body: JSON.stringify({
         name,
         about,
@@ -63,9 +89,11 @@ export default class Api {
   }
 
   setUserAvatar({ avatar }) {
-    return fetch(`${this.options.baseUrl}/users/me/avatar`, {
+    return fetch(`${this._options.baseUrl}/users/me/avatar`, {
       method: 'PATCH',
-      headers: this.options.headers,
+      // redirect: 'follow',
+      // credentials: 'include',
+      headers: this._options.headers,
       body: JSON.stringify({
         avatar,
       }),

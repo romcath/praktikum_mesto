@@ -14,8 +14,9 @@
       <img src="<%=require('./images/logo.svg')%>" alt="Логотип" class="logo">
       <button type="button" class="button header__menu-icon"></button>
       <div class="menu">
-        <p class="menu__email">email@mail.com</p>
-        <button type="button" class="button menu__button menu__button_inactive">Выйти</button>
+        <p class="menu__email"></p>
+        <a href="auth.html" class="">123</a>
+        <button type="button" class="button menu__button menu__button_inactive"></button>
       </div>
     </header>
     <main class="content">
@@ -39,12 +40,13 @@
         <h3 class="popup__title">Новое место</h3>
         <form class="popup__form" name="new" novalidate>
           <label class="popup__label">
-            <input type="text" id="place-name" name="name" class="popup__input popup__input_type_title" placeholder="Название"
-              minlength="2" maxlength="30" required>
+            <input type="text" id="place-name" name="name" class="popup__input popup__input_type_title"
+              placeholder="Название" minlength="2" maxlength="30" required>
             <span class="popup__span popup__span_type_title" id="place-name-error"></span>
           </label>
           <label class="popup__label">
-            <input type="url" id="place-link" name="link" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку" required>
+            <input type="url" id="place-link" name="link" class="popup__input popup__input_type_link"
+              placeholder="Ссылка на картинку" required>
             <span class="popup__span popup__span_type_link" id="place-link-error"></span>
           </label>
           <button type="submit" name="submit"
@@ -58,13 +60,13 @@
         <h3 class="popup__title">Редактировать профиль</h3>
         <form class="popup__form" name="edit" novalidate>
           <label class="popup__label">
-            <input type="text" id="name" name="name" class="popup__input popup__input_type_name" placeholder="Имя" minlength="2"
-              maxlength="30" required>
+            <input type="text" id="name" name="name" class="popup__input popup__input_type_name" placeholder="Имя"
+              minlength="2" maxlength="30" required>
             <span class="popup__span popup__span_type_name" id="name-error"></span>
           </label>
           <label class="popup__label">
-            <input type="text" id="description" name="description" class="popup__input popup__input_type_about" placeholder="О себе"
-              minlength="2" maxlength="30" required>
+            <input type="text" id="description" name="description" class="popup__input popup__input_type_about"
+              placeholder="О себе" minlength="2" maxlength="30" required>
             <span class="popup__span popup__span_type_about" id="description-error"></span>
           </label>
           <button type="submit" name="submit"
@@ -78,7 +80,8 @@
         <h3 class="popup__title">Обновить аватар</h3>
         <form class="popup__form" name="avatar" novalidate>
           <label class="popup__label">
-            <input type="url" id="url" name="avatar" class="popup__input popup__input_type_avatar" placeholder="Ссылка на аватар" required>
+            <input type="url" id="url" name="avatar" class="popup__input popup__input_type_avatar"
+              placeholder="Ссылка на аватар" required>
             <span class="popup__span popup__span_type_avatar" id="url-error"></span>
           </label>
           <button type="submit" name="submit" class="button popup__button popup__button_size_small popup__button_avatar"
@@ -116,44 +119,48 @@
         <h3 class="popup__title">Что-то пошло не так! Попробуйте ещё раз.</h3>
       </div>
     </div>
-    <div class="auth auth_type_signup">
-      <h3 class="auth__title">Регистрация</h3>
-      <form class="auth__form" name="signup" novalidate>
-        <label class="auth__label">
-          <input type="text" name="signup" class="auth__input auth__input_type_email" placeholder="Email" minlength="2"
-            maxlength="30" required>
-          <span class="auth__span auth__span_type_email"></span>
-        </label>
-        <label class="auth__label">
-          <input type="password" name="password" class="auth__input auth__input_type_password" placeholder="Пароль"
-            pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" required>
-          <span class="auth__span auth__span_type_password"></span>
-        </label>
-        <button type="submit" name="submit" class="button auth__button">Зарегистрироваться</button>
-        <p class="auth__text">Уже зарегистрированы?
-          <a class="auth__link" href="#">Войти</a>
-        </p>
-      </form>
-    </div>
-    <div class="auth auth_type_login">
-      <h3 class="auth__title">Вход</h3>
-      <form class="auth__form" name="login" novalidate>
-        <label class="auth__label">
-          <input type="text" name="signup" class="auth__input auth__input_type_email" placeholder="Email" minlength="2"
-            maxlength="30" required>
-          <span class="auth__span auth__span_type_email"></span>
-        </label>
-        <label class="auth__label">
-          <input type="password" name="password" class="auth__input auth__input_type_password" placeholder="Пароль"
-            pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" required>
-          <span class="auth__span auth__span_type_password"></span>
-        </label>
-        <button type="submit" name="submit" class="button auth__button">Войти</button>
-        <p class="auth__text">Ещё не зарегистрированы?
-          <a class="auth__link" href="#">Регистрация</a>
-        </p>
-      </form>
-    </div>
+    <template class="signup-template">
+      <div class="auth auth_type_signup">
+        <h3 class="auth__title">Регистрация</h3>
+        <form class="auth__form" name="signup" novalidate>
+          <label class="auth__label">
+            <input type="email" id="signup-email" name="signup" class="auth__input auth__input_type_email"
+              placeholder="Email" pattern="^[\w\-\.]{2,}@([\w\-]{1,63}\.)*[\w\-]{2,63}\.[a-z]{2,}$" required>
+            <span class="auth__span auth__span_type_email" id="signup-email-error"></span>
+          </label>
+          <label class="auth__label">
+            <input type="password" id="signup-password" name="password" class="auth__input auth__input_type_password"
+              minlength="8" placeholder="Пароль" required>
+            <span class="auth__span auth__span_type_password" id="signup-password-error"></span>
+          </label>
+          <button type="submit" name="submit" class="button auth__button">Зарегистрироваться</button>
+          <p class="auth__text">Уже зарегистрированы?
+            <a class="auth__link" href="#">Войти</a>
+          </p>
+        </form>
+      </div>
+    </template>
+    <template class="login-template">
+      <div class="auth auth_type_login">
+        <h3 class="auth__title">Вход</h3>
+        <form class="auth__form" name="login" novalidate>
+          <label class="auth__label">
+            <input type="text" name="signup" class="auth__input auth__input_type_email" placeholder="Email"
+              minlength="2" maxlength="30" required>
+            <span class="auth__span auth__span_type_email"></span>
+          </label>
+          <label class="auth__label">
+            <input type="password" name="password" class="auth__input auth__input_type_password" placeholder="Пароль"
+              pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" required>
+            <span class="auth__span auth__span_type_password"></span>
+          </label>
+          <button type="submit" name="submit" class="button auth__button">Войти</button>
+          <p class="auth__text">Ещё не зарегистрированы?
+            <a class="auth__link" href="#">Регистрация</a>
+          </p>
+        </form>
+      </div>
+    </template>
     <template class="place-card-template">
       <div class="place-card">
         <div class='place-card__image'></div>
