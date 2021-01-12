@@ -15,7 +15,6 @@
       <button type="button" class="button header__menu-icon"></button>
       <div class="menu">
         <p class="menu__email"></p>
-        <a href="auth.html" class="">123</a>
         <button type="button" class="button menu__button menu__button_inactive"></button>
       </div>
     </header>
@@ -119,48 +118,6 @@
         <h3 class="popup__title">Что-то пошло не так! Попробуйте ещё раз.</h3>
       </div>
     </div>
-    <template class="signup-template">
-      <div class="auth auth_type_signup">
-        <h3 class="auth__title">Регистрация</h3>
-        <form class="auth__form" name="signup" novalidate>
-          <label class="auth__label">
-            <input type="email" id="signup-email" name="signup" class="auth__input auth__input_type_email"
-              placeholder="Email" pattern="^[\w\-\.]{2,}@([\w\-]{1,63}\.)*[\w\-]{2,63}\.[a-z]{2,}$" required>
-            <span class="auth__span auth__span_type_email" id="signup-email-error"></span>
-          </label>
-          <label class="auth__label">
-            <input type="password" id="signup-password" name="password" class="auth__input auth__input_type_password"
-              minlength="8" placeholder="Пароль" required>
-            <span class="auth__span auth__span_type_password" id="signup-password-error"></span>
-          </label>
-          <button type="submit" name="submit" class="button auth__button">Зарегистрироваться</button>
-          <p class="auth__text">Уже зарегистрированы?
-            <a class="auth__link" href="#">Войти</a>
-          </p>
-        </form>
-      </div>
-    </template>
-    <template class="login-template">
-      <div class="auth auth_type_login">
-        <h3 class="auth__title">Вход</h3>
-        <form class="auth__form" name="login" novalidate>
-          <label class="auth__label">
-            <input type="text" name="signup" class="auth__input auth__input_type_email" placeholder="Email"
-              minlength="2" maxlength="30" required>
-            <span class="auth__span auth__span_type_email"></span>
-          </label>
-          <label class="auth__label">
-            <input type="password" name="password" class="auth__input auth__input_type_password" placeholder="Пароль"
-              pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" required>
-            <span class="auth__span auth__span_type_password"></span>
-          </label>
-          <button type="submit" name="submit" class="button auth__button">Войти</button>
-          <p class="auth__text">Ещё не зарегистрированы?
-            <a class="auth__link" href="#">Регистрация</a>
-          </p>
-        </form>
-      </div>
-    </template>
     <template class="place-card-template">
       <div class="place-card">
         <div class='place-card__image'></div>
