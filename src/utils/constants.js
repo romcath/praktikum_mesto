@@ -27,28 +27,22 @@ const PROFILE_DESCRIPTION = document.querySelector('.user-info__job');
 const PROFILE_AVATAR = document.querySelector('.user-info__photo');
 
 // Данные форм и элементы форм
-const TITLE_INPUT_VALUE = document.querySelector('.popup__input_type_name');
-const DESCRIPTION_INPUT_VALUE = document.querySelector('.popup__input_type_about');
-
-// const INPUT_LIST_CARD = Array.from(CARD_FORM_MODAL_WINDOW.querySelectorAll('.popup__input'));
-// const BUTTON_SUBMIT_CARD = CARD_FORM_MODAL_WINDOW.querySelector('.popup__button');
-
-// const INPUT_LIST_EDIT = Array.from(EDIT_FORM_MODAL_WINDOW.querySelectorAll('.popup__input'));
-// const BUTTON_SUBMIT_EDIT = EDIT_FORM_MODAL_WINDOW.querySelector('.popup__button');
-
-// const INPUT_LIST_AVATAR = Array.from(AVATAR_MODAL_WINDOW.querySelectorAll('.popup__input'));
-// const BUTTON_SUBMIT_AVATAR = AVATAR_MODAL_WINDOW.querySelector('.popup__button');
+const TITLE_INPUT_VALUE = document.querySelector('.form__input_type_name');
+const DESCRIPTION_INPUT_VALUE = document.querySelector('.form__input_type_about');
+const BUTTON_SUBMIT_EDIT = document.querySelector('.popup__button_type_edit');
+const BUTTON_SUBMIT_CARD = document.querySelector('.popup__button_new-card');
+const BUTTON_SUBMIT_AVATAR = document.querySelector('.popup__button_avatar');
 
 const CARD_SELECTOR = '.place-card-template';
 const SIGNUP_SELECTOR = '.signup-template';
 const LOGIN_SELECTOR = '.login-template';
 const DEFAULT_FORM_CONFIG = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
+  formSelector: '.form',
+  inputSelector: '.form__input',
   submitButtonSelector: '.popup__button',
   activeButtonClass: 'popup__button_enabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__span_visible',
+  inputErrorClass: 'form__input_type_error',
+  errorClass: 'form__error_visible',
 };
 
 const DEFAULT_AUTH_CONFIG = {
@@ -57,7 +51,7 @@ const DEFAULT_AUTH_CONFIG = {
   submitButtonSelector: '.auth__button',
   activeButtonClass: 'auth__button_enabled',
   inputErrorClass: 'auth__input_type_error',
-  errorClass: 'auth__span_visible',
+  errorClass: 'auth__error_visible',
 };
 
 export {
@@ -71,19 +65,16 @@ export {
   PROFILE_DESCRIPTION,
   PROFILE_AVATAR,
   TITLE_INPUT_VALUE,
+  BUTTON_SUBMIT_EDIT,
+  BUTTON_SUBMIT_CARD,
+  BUTTON_SUBMIT_AVATAR,
   DESCRIPTION_INPUT_VALUE,
   REMOVE_MODAL_WINDOW,
   CARD_SELECTOR,
   DEFAULT_FORM_CONFIG,
   ESC_KEYCODE,
-  // INPUT_LIST_CARD,
-  // BUTTON_SUBMIT_CARD,
-  // INPUT_LIST_EDIT,
-  // BUTTON_SUBMIT_EDIT,
   OPEN_AVATAR_FORM_BUTTON,
   AVATAR_MODAL_WINDOW,
-  // INPUT_LIST_AVATAR,
-  // BUTTON_SUBMIT_AVATAR,
   HEADER_ELEMENT,
   SIGNUP_SELECTOR,
   LOGIN_SELECTOR,

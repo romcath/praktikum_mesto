@@ -46,7 +46,7 @@ export default class FormValidator {
     return inputList.some((inputElement) => !inputElement.validity.valid);
   }
 
-  _setEventListeners() {
+  enableValidation() {
     this._inputList = Array.from(this._element.querySelectorAll(this._inputSelector));
     this._buttonElement = this._element.querySelector(this._submitButtonSelector);
 
@@ -59,18 +59,11 @@ export default class FormValidator {
   }
 
   resetSpans() {
-    this._spanList = Array.from(this._element.querySelectorAll('.popup__span'));
-    this._inputList.forEach((item) => item.classList.remove('popup__input_type_error'));
+    this._spanList = Array.from(this._element.querySelectorAll('.form__error'));
+    this._inputList.forEach((item) => item.classList.remove('form__input_type_error'));
     this._spanList.forEach((item) => {
+      item.classList.remove('form__error_visible');
       item.textContent = '';
     });
-  }
-
-  enableValidation() {
-    this._element.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-    });
-
-    this._setEventListeners();
   }
 }

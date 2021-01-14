@@ -12,18 +12,15 @@ import {
   PROFILE_DESCRIPTION,
   PROFILE_AVATAR,
   TITLE_INPUT_VALUE,
+  BUTTON_SUBMIT_EDIT,
+  BUTTON_SUBMIT_CARD,
+  BUTTON_SUBMIT_AVATAR,
   DESCRIPTION_INPUT_VALUE,
   CARD_SELECTOR,
   REMOVE_MODAL_WINDOW,
   DEFAULT_FORM_CONFIG,
-  INPUT_LIST_CARD,
-  BUTTON_SUBMIT_CARD,
-  INPUT_LIST_EDIT,
-  BUTTON_SUBMIT_EDIT,
   OPEN_AVATAR_FORM_BUTTON,
   AVATAR_MODAL_WINDOW,
-  INPUT_LIST_AVATAR,
-  BUTTON_SUBMIT_AVATAR,
 } from '../utils/constants';
 import { renderLoading } from '../utils/utils';
 
@@ -88,7 +85,6 @@ const createCard = (data) => {
           .catch((err) => console.log(`Ошибка удаления карточки: ${err}`));
       });
     },
-
     cardSelector: CARD_SELECTOR,
   });
   return card.getCard();
@@ -187,10 +183,10 @@ const handleLoginState = () => {
       })
       .catch((err) => console.log(`Ошибка загрузки данных: ${err}`));
   } else {
-    // window.location.replace('./auth.html');
-    window.location.href = './auth.html';
+    window.location.replace('./auth.html');
   }
 };
+handleLoginState();
 
 // Мобильное меню
 const mobileMenuButton = document.querySelector('.header__menu-icon');
@@ -215,24 +211,29 @@ mobileMenuButton.addEventListener('click', openMenuMobile);
 
 // Слушатели событий
 OPEN_CARD_FORM_BUTTON.addEventListener('click', () => {
-  cardFormValidator.toggleButtonState(INPUT_LIST_CARD, BUTTON_SUBMIT_CARD);
+  const inputListCard = Array.from(CARD_FORM_MODAL_WINDOW.querySelectorAll('.form__input'));
+
+  cardFormValidator.toggleButtonState(inputListCard, BUTTON_SUBMIT_CARD);
   cardFormValidator.resetSpans();
   newCardPopup.open();
 });
 
 OPEN_EDIT_FORM_BUTTON.addEventListener('click', () => {
+  const inputListEdit = Array.from(EDIT_FORM_MODAL_WINDOW.querySelectorAll('.form__input'));
   const currentUserInfo = userInfo.getUserInfo();
+
   TITLE_INPUT_VALUE.value = currentUserInfo.name;
   DESCRIPTION_INPUT_VALUE.value = currentUserInfo.description;
-  editFormValidator.toggleButtonState(INPUT_LIST_EDIT, BUTTON_SUBMIT_EDIT);
+
+  editFormValidator.toggleButtonState(inputListEdit, BUTTON_SUBMIT_EDIT);
   editFormValidator.resetSpans();
   userInfoPopup.open();
 });
 
 OPEN_AVATAR_FORM_BUTTON.addEventListener('click', () => {
-  avatarFormValidator.toggleButtonState(INPUT_LIST_AVATAR, BUTTON_SUBMIT_AVATAR);
+  const inputListAvatar = Array.from(AVATAR_MODAL_WINDOW.querySelectorAll('.form__input'));
+
+  avatarFormValidator.toggleButtonState(inputListAvatar, BUTTON_SUBMIT_AVATAR);
   avatarFormValidator.resetSpans();
   changeAvatarPopup.open();
 });
-
-handleLoginState();

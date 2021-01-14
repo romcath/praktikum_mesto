@@ -31,22 +31,22 @@
       <section class="places-list root__section"></section>
     </main>
     <footer class="footer root__section">
-      <p class="footer__copyright">&copy; 2020 Катя Ромашкина</p>
+      <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
     </footer>
     <div class="popup popup_type_new-card">
       <div class="popup__content">
         <button type="button" class="button popup__close" aria-label="Закрыть окно"></button>
         <h3 class="popup__title">Новое место</h3>
-        <form class="popup__form" name="new" novalidate>
-          <label class="popup__label">
-            <input type="text" id="place-name" name="name" class="popup__input popup__input_type_title"
+        <form class="form" name="new" novalidate>
+          <label class="form__label">
+            <input type="text" id="place-name" name="name" class="form__input form__input_type_title"
               placeholder="Название" minlength="2" maxlength="30" required>
-            <span class="popup__span popup__span_type_title" id="place-name-error"></span>
+            <span class="form__error form__error_type_title" id="place-name-error"></span>
           </label>
-          <label class="popup__label">
-            <input type="url" id="place-link" name="link" class="popup__input popup__input_type_link"
+          <label class="form__label">
+            <input type="url" id="place-link" name="link" class="form__input form__input_type_link"
               placeholder="Ссылка на картинку" required>
-            <span class="popup__span popup__span_type_link" id="place-link-error"></span>
+            <span class="form__error form__error_type_link" id="place-link-error"></span>
           </label>
           <button type="submit" name="submit"
             class="button popup__button popup__button_size_small popup__button_new-card" disabled>Создать</button>
@@ -57,19 +57,19 @@
       <div class="popup__content">
         <button type="button" class="button popup__close" aria-label="Закрыть окно"></button>
         <h3 class="popup__title">Редактировать профиль</h3>
-        <form class="popup__form" name="edit" novalidate>
-          <label class="popup__label">
-            <input type="text" id="name" name="name" class="popup__input popup__input_type_name" placeholder="Имя"
+        <form class="form" name="edit" novalidate>
+          <label class="form__label">
+            <input type="text" id="name" name="name" class="form__input form__input_type_name" placeholder="Имя"
               minlength="2" maxlength="30" required>
-            <span class="popup__span popup__span_type_name" id="name-error"></span>
+            <span class="form__error form__error_type_name" id="name-error"></span>
           </label>
-          <label class="popup__label">
-            <input type="text" id="description" name="description" class="popup__input popup__input_type_about"
+          <label class="form__label">
+            <input type="text" id="description" name="description" class="form__input form__input_type_about"
               placeholder="О себе" minlength="2" maxlength="30" required>
-            <span class="popup__span popup__span_type_about" id="description-error"></span>
+            <span class="form__error form__error_type_about" id="description-error"></span>
           </label>
           <button type="submit" name="submit"
-            class="button popup__button popup__button_size_small popup__button_enabled">Сохранить</button>
+            class="button popup__button popup__button_size_small popup__button_enabled popup__button_type_edit">Сохранить</button>
         </form>
       </div>
     </div>
@@ -77,11 +77,11 @@
       <div class="popup__content">
         <button type="button" class="button popup__close" aria-label="Закрыть окно"></button>
         <h3 class="popup__title">Обновить аватар</h3>
-        <form class="popup__form" name="avatar" novalidate>
-          <label class="popup__label">
-            <input type="url" id="url" name="avatar" class="popup__input popup__input_type_avatar"
+        <form class="form" name="avatar" novalidate>
+          <label class="form__label">
+            <input type="url" id="url" name="avatar" class="form__input form__input_type_avatar"
               placeholder="Ссылка на аватар" required>
-            <span class="popup__span popup__span_type_avatar" id="url-error"></span>
+            <span class="form__error form__error_type_avatar" id="url-error"></span>
           </label>
           <button type="submit" name="submit" class="button popup__button popup__button_size_small popup__button_avatar"
             disabled>Сохранить</button>
@@ -91,7 +91,7 @@
     <div class="popup popup_type_image">
       <div class="popup__container">
         <button type="button" class="button popup__close" aria-label="Закрыть окно"></button>
-        <img src="" alt="" class="popup__image">
+        <img src="/" alt="/" class="popup__image">
         <p class="popup__caption"></p>
       </div>
     </div>
@@ -99,23 +99,9 @@
       <div class="popup__content">
         <button type="button" class="button popup__close" aria-label="Закрыть окно"></button>
         <h3 class="popup__title">Вы уверены?</h3>
-        <form class="popup__form" name="remove-card" novalidate>
+        <form class="form" name="remove-card" novalidate>
           <button type="submit" class="button popup__button popup__button_size_small popup__button_enabled">Да</button>
         </form>
-      </div>
-    </div>
-    <div class="popup popup_type_success">
-      <div class="popup__wrapper">
-        <button type="button" class="button popup__close" aria-label="Закрыть окно"></button>
-        <div class="popup__icon popup__icon_type_success"></div>
-        <h3 class="popup__title">Вы успешно зарегистрировались!</h3>
-      </div>
-    </div>
-    <div class="popup popup_type_fail">
-      <div class="popup__wrapper">
-        <button type="button" class="button popup__close" aria-label="Закрыть окно"></button>
-        <div class="popup__icon popup__icon_type_fail"></div>
-        <h3 class="popup__title">Что-то пошло не так! Попробуйте ещё раз.</h3>
       </div>
     </div>
     <template class="place-card-template">

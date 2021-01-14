@@ -14,7 +14,7 @@
     <button type="button" class="button header__menu-icon"></button>
     <div class="menu">
       <p class="menu__email"></p>
-      <button type="button" class="button menu__button menu__button_inactive"></button>
+      <button type="button" class="button menu__button"></button>
     </div>
   </header>
   <main class="content">
@@ -25,12 +25,12 @@
           <label class="auth__label">
             <input type="email" id="signup-email" name="signup" class="auth__input auth__input_type_email"
               placeholder="Email" pattern="^[\w\-\.]{2,}@([\w\-]{1,63}\.)*[\w\-]{2,63}\.[a-z]{2,}$" required>
-            <span class="auth__span auth__span_type_email" id="signup-email-error"></span>
+            <span class="auth__error auth__error_type_email" id="signup-email-error"></span>
           </label>
           <label class="auth__label">
             <input type="password" id="signup-password" name="password" class="auth__input auth__input_type_password"
               minlength="8" placeholder="Пароль" required>
-            <span class="auth__span auth__span_type_password" id="signup-password-error"></span>
+            <span class="auth__error auth__error_type_password" id="signup-password-error"></span>
           </label>
           <button type="submit" name="submit" class="button auth__button">Зарегистрироваться</button>
           <p class="auth__text">Уже зарегистрированы?
@@ -46,11 +46,11 @@
           <label class="auth__label">
             <input type="email" id="login-email" name="login" class="auth__input auth__input_type_email" placeholder="Email"
               pattern="^[\w\-\.]{2,}@([\w\-]{1,63}\.)*[\w\-]{2,63}\.[a-z]{2,}$" required>
-            <span class="auth__span auth__span_type_email" id="login-email-error"></span>
+            <span class="auth__error auth__error_type_email" id="login-email-error"></span>
           </label>
           <label class="auth__label">
             <input type="password" id="login-password" name="password" class="auth__input auth__input_type_password" placeholder="Пароль" minlength="8" required>
-            <span class="auth__span auth__span_type_password" id="login-password-error"></span>
+            <span class="auth__error auth__error_type_password" id="login-password-error"></span>
           </label>
           <button type="submit" name="submit" class="button auth__button">Войти</button>
           <p class="auth__text">Ещё не зарегистрированы?
