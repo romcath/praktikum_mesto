@@ -6,9 +6,9 @@ import {
   LOGIN_SELECTOR,
   DEFAULT_FORM_CONFIG,
   MAIN_ELEMENT,
-  SUCCESS_MODAL_WINDOW,
   FAIL_MODAL_WINDOW,
   HEADER_ELEMENT,
+  SUCCESS_MODAL_WINDOW,
 } from '../utils/constants';
 
 import Register from '../components/register';
@@ -26,10 +26,10 @@ const api = new Api({
   },
 });
 
-const popupSuccess = new Popup(SUCCESS_MODAL_WINDOW);
-popupSuccess.setEventListeners();
 const popupFail = new Popup(FAIL_MODAL_WINDOW);
 popupFail.setEventListeners();
+const popupSuccess = new Popup(SUCCESS_MODAL_WINDOW);
+popupSuccess.setEventListeners();
 
 const authList = new Section({
   container: MAIN_ELEMENT,
@@ -39,7 +39,7 @@ const headerLogin = new Header({
   headerElement: HEADER_ELEMENT,
   handleHeaderClick: () => {
     loginRegister.clearElement();
-    headerLogin.clearListener();
+    headerLogin.removeEventListener();
     signup();
   },
 });
@@ -48,7 +48,7 @@ const headerSignup = new Header({
   headerElement: HEADER_ELEMENT,
   handleHeaderClick: () => {
     signupRegister.clearElement();
-    headerSignup.clearListener();
+    headerSignup.removeEventListener();
     login();
   },
 });
@@ -79,6 +79,8 @@ const signupRegister = new Register({
     api.signup(data)
       .then(() => {
         popupSuccess.open();
+        localStorage.setItem('loginState', 'true');
+        window.location.replace('./index.html');
       })
       .catch((err) => {
         popupFail.open();
@@ -96,7 +98,8 @@ const loginRegister = new Register({
   handleFormSubmit: (data) => {
     api.signin(data)
       .then(() => {
-        popupSuccess.open();
+        localStorage.setItem('loginState', 'true');
+        window.location.replace('./index.html');
       })
       .catch((err) => {
         popupFail.open();

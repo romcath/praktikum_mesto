@@ -2,8 +2,8 @@
   display: flex;
   position: fixed;
   top: -143px;
-  left: 0;
-  width: 100%;
+  left: 20px;
+  width: 90%;
   background-color: #000;
   box-sizing: border-box;
   padding: 40px 0;
