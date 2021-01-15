@@ -18,6 +18,7 @@
 @import url('../blocks/footer/__copyright/footer__copyright.css');
 
 @import url('../blocks/popup/popup.css');
+@import url('../blocks/popup/__title/popup__title.css');
 @import url('../blocks/popup/_is-opened/popup_is-opened.css');
 @import url('../blocks/popup/__content/popup__content.css');
 @import url('../blocks/popup/__close/popup__close.css');
@@ -29,15 +30,20 @@
 
 @import url('../blocks/auth/auth.css');
 @import url('../blocks/auth/__title/auth__title.css');
-@import url('../blocks/auth/__form/auth__form.css');
-@import url('../blocks/auth/__label/auth__label.css');
-@import url('../blocks/auth/__input/auth__input.css');
-@import url('../blocks/auth/__error/auth__error.css');
-@import url('../blocks/auth/__error/_visible/auth__error_visible.css');
-@import url('../blocks/auth/__button/auth__button.css');
-@import url('../blocks/auth/__button/_enabled/auth__button_enabled.css');
 @import url('../blocks/auth/__text/auth__text.css');
 @import url('../blocks/auth/__link/auth__link.css');
+
+@import url('../blocks/form/form.css');
+@import url('../blocks/form/__label/form__label.css');
+@import url('../blocks/form/__input/form__input.css');
+@import url('../blocks/form/__input/_type/form__input_type_auth.css');
+@import url('../blocks/form/__input/_type/form__input_type_error.css');
+@import url('../blocks/form/__error/form__error.css');
+@import url('../blocks/form/__error/_visible/form__error_visible.css');
+@import url('../blocks/form/__button/form__button.css');
+@import url('../blocks/form/__button/_enabled/form__button_enabled.css');
+@import url('../blocks/form/__button/_size/form__button_size_small.css');
+@import url('../blocks/form/__button/_type/form__button_type_auth.css');
 
 body {
   background-color: #000;

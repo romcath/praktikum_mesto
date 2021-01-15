@@ -1,0 +1,10 @@
+.form__input_type_auth {
+  color: #ccc;
+  background: transparent;
+  border-bottom: 2px solid #ccc;
+}
+
+.form__input_type_auth:focus {
+  outline: none;
+  border-bottom: 2px solid #fff;
+}

@@ -4,7 +4,7 @@ import './auth.css';
 import {
   SIGNUP_SELECTOR,
   LOGIN_SELECTOR,
-  DEFAULT_AUTH_CONFIG,
+  DEFAULT_FORM_CONFIG,
   MAIN_ELEMENT,
   SUCCESS_MODAL_WINDOW,
   FAIL_MODAL_WINDOW,
@@ -57,7 +57,7 @@ const login = () => {
   authList.addItem(loginRegister.getSignup());
 
   const LOGIN_MODAL_WINDOW = document.querySelector('.auth_type_login');
-  const loginFormValidator = new FormValidator(DEFAULT_AUTH_CONFIG, LOGIN_MODAL_WINDOW);
+  const loginFormValidator = new FormValidator(DEFAULT_FORM_CONFIG, LOGIN_MODAL_WINDOW);
   loginFormValidator.enableValidation();
 
   headerLogin.render(false, 'Регистрация');
@@ -67,7 +67,7 @@ const signup = () => {
   authList.addItem(signupRegister.getSignup());
 
   const SIGNUP_MODAL_WINDOW = document.querySelector('.auth_type_signup');
-  const signupFormValidator = new FormValidator(DEFAULT_AUTH_CONFIG, SIGNUP_MODAL_WINDOW);
+  const signupFormValidator = new FormValidator(DEFAULT_FORM_CONFIG, SIGNUP_MODAL_WINDOW);
   signupFormValidator.enableValidation();
 
   headerSignup.render(false, 'Войти');

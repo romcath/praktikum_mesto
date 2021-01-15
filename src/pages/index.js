@@ -168,7 +168,7 @@ const changeAvatarPopup = new PopupWithForm({
 changeAvatarPopup.setEventListeners();
 
 const handleLoginState = () => {
-  if (!auth.getLoginState()) {
+  if (auth.getLoginState()) {
     api.getAppInfo()
       .then(([cardsArray, userData]) => {
         userId = userData._id;

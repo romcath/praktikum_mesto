@@ -1,18 +1,16 @@
-.auth__button {
-  width: 100%;
-  height: 50px;
+.form__button_type_auth {
   background: #fff;
   border-radius: 2px;
   font-size: 18px;
   line-height: 22px;
   text-align: center;
-  color: rgba(0, 0, 0, .2);
   margin-top: 216px;
+  color: #000;
   cursor: default;
 }
 
 @media screen and (max-width: 540px) {
-  .auth__button {
+  .form__button_type_auth {
     height: 46px;
     margin-top: 173px;
     font-size: 16px;

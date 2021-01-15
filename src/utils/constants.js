@@ -36,6 +36,7 @@ const BUTTON_SUBMIT_AVATAR = document.querySelector('.form__button_avatar');
 const CARD_SELECTOR = '.place-card-template';
 const SIGNUP_SELECTOR = '.signup-template';
 const LOGIN_SELECTOR = '.login-template';
+
 const DEFAULT_FORM_CONFIG = {
   formSelector: '.form',
   inputSelector: '.form__input',
@@ -43,15 +44,6 @@ const DEFAULT_FORM_CONFIG = {
   activeButtonClass: 'form__button_enabled',
   inputErrorClass: 'form__input_type_error',
   errorClass: 'form__error_visible',
-};
-
-const DEFAULT_AUTH_CONFIG = {
-  formSelector: '.auth__form',
-  inputSelector: '.auth__input',
-  submitButtonSelector: '.auth__button',
-  activeButtonClass: 'auth__button_enabled',
-  inputErrorClass: 'auth__input_type_error',
-  errorClass: 'auth__error_visible',
 };
 
 export {
@@ -78,7 +70,6 @@ export {
   HEADER_ELEMENT,
   SIGNUP_SELECTOR,
   LOGIN_SELECTOR,
-  DEFAULT_AUTH_CONFIG,
   SUCCESS_MODAL_WINDOW,
   FAIL_MODAL_WINDOW,
   MAIN_ELEMENT,
