@@ -29,9 +29,9 @@ const PROFILE_AVATAR = document.querySelector('.user-info__photo');
 // Данные форм и элементы форм
 const TITLE_INPUT_VALUE = document.querySelector('.form__input_type_name');
 const DESCRIPTION_INPUT_VALUE = document.querySelector('.form__input_type_about');
-const BUTTON_SUBMIT_EDIT = document.querySelector('.popup__button_type_edit');
-const BUTTON_SUBMIT_CARD = document.querySelector('.popup__button_new-card');
-const BUTTON_SUBMIT_AVATAR = document.querySelector('.popup__button_avatar');
+const BUTTON_SUBMIT_EDIT = document.querySelector('.form__button_type_edit');
+const BUTTON_SUBMIT_CARD = document.querySelector('.form__button_new-card');
+const BUTTON_SUBMIT_AVATAR = document.querySelector('.form__button_avatar');
 
 const CARD_SELECTOR = '.place-card-template';
 const SIGNUP_SELECTOR = '.signup-template';
@@ -39,8 +39,8 @@ const LOGIN_SELECTOR = '.login-template';
 const DEFAULT_FORM_CONFIG = {
   formSelector: '.form',
   inputSelector: '.form__input',
-  submitButtonSelector: '.popup__button',
-  activeButtonClass: 'popup__button_enabled',
+  submitButtonSelector: '.form__button',
+  activeButtonClass: 'form__button_enabled',
   inputErrorClass: 'form__input_type_error',
   errorClass: 'form__error_visible',
 };

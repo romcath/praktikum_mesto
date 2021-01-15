@@ -1,11 +1,11 @@
-.popup__button_enabled {
+.form__button_enabled {
   border: 1px solid #000;
   background-color: #000;
   color: #fff;
   transition: opacity .5s ease;
 }
 
-.popup__button_enabled:hover {
+.form__button_enabled:hover {
   opacity: .8;
   cursor: pointer;
 }

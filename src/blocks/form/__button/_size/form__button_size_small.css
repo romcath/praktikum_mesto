@@ -1,9 +1,9 @@
-.popup__button_size_small {
+.form__button_size_small {
   font-size: 18px;
 }
 
 @media screen and (max-width: 540px) {
-  .popup__button_size_small {
+  .form__button_size_small {
     font-size: 14px;
   }
 }
