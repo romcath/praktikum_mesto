@@ -36,7 +36,11 @@ export default class Header {
     element.addEventListener(event, handler);
   }
 
-  removeEventListener(element, event, handler) {
+  removeEventListener() {
+    this._menuButton.removeEventListener('click', this._handleHeaderClick);
+  }
+
+  _removeEventListenerMobileMenu(element, event, handler) {
     element.removeEventListener(event, handler);
   }
 
@@ -45,7 +49,7 @@ export default class Header {
     this._headerMenu.classList.add(this._mobileMenuClass);
     this._mobileMenuButton.classList.add(this._closeMobileMenuClass);
 
-    this.removeEventListener(this._mobileMenuButton, 'click', this.openMobileMenu);
+    this._removeEventListenerMobileMenu(this._mobileMenuButton, 'click', this.openMobileMenu);
     this._setEventListener(this._mobileMenuButton, 'click', this.closeMenuMobile);
   }
 
@@ -54,7 +58,7 @@ export default class Header {
     this._headerMenu.classList.remove(this._mobileMenuClass);
     this._mobileMenuButton.classList.remove(this._closeMobileMenuClass);
 
-    this.removeEventListener(this._mobileMenuButton, 'click', this.closeMenuMobile);
+    this._removeEventListenerMobileMenu(this._mobileMenuButton, 'click', this.closeMenuMobile);
     this._setEventListener(this._mobileMenuButton, 'click', this.openMobileMenu);
   }
 }

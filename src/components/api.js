@@ -18,6 +18,31 @@ export default class Api {
       .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
   }
 
+  signin(email, password) {
+    return fetch(`${this._options.baseUrl}/signin`, {
+      redirect: 'follow',
+      credentials: 'include',
+      method: 'POST',
+      headers: this._options.headers,
+      body: JSON.stringify({
+        email, password,
+      }),
+    })
+      .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
+  }
+
+  logout() {
+    return fetch(`${this._options.baseUrl}/logout`, {
+      redirect: 'follow',
+      credentials: 'include',
+      method: 'POST',
+      headers: this._options.headers,
+      body: JSON.stringify({
+      }),
+    })
+      .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
+  }
+
   getAppInfo() {
     return Promise.all([this.getCardList(), this.getUserInfo()]);
   }

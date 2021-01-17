@@ -9,6 +9,8 @@ import {
   FAIL_MODAL_WINDOW,
   HEADER_ELEMENT,
   SUCCESS_MODAL_WINDOW,
+  DEFAULT_MENU_CONFIG,
+  ROOT_ELEMENT,
 } from '../utils/constants';
 
 import Register from '../components/register';
@@ -37,21 +39,23 @@ const authList = new Section({
 
 const headerLogin = new Header({
   headerElement: HEADER_ELEMENT,
+  rootElement: ROOT_ELEMENT,
   handleHeaderClick: () => {
     loginRegister.clearElement();
     headerLogin.removeEventListener();
     signup();
   },
-});
+}, DEFAULT_MENU_CONFIG);
 
 const headerSignup = new Header({
   headerElement: HEADER_ELEMENT,
+  rootElement: ROOT_ELEMENT,
   handleHeaderClick: () => {
     signupRegister.clearElement();
     headerSignup.removeEventListener();
     login();
   },
-});
+}, DEFAULT_MENU_CONFIG);
 
 const login = () => {
   authList.addItem(loginRegister.getSignup());
