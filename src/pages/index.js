@@ -32,7 +32,6 @@ import Auth from '../components/auth';
 import Card from '../components/card';
 import FormValidator from '../components/formValidator';
 import Section from '../components/section';
-import PopupWithForm from '../components/popupWithForm';
 import UserInfo from '../components/user-info';
 import PopupWithImage from '../components/popupWithImage';
 import PopupWithFormSubmit from '../components/popupWithFormSubmit';
@@ -101,75 +100,75 @@ const cardList = new Section({
   container: PLACES_WRAP,
 });
 
-const newCardPopup = new PopupWithForm({
-  popupElement: CARD_FORM_MODAL_WINDOW,
-  handleFormSubmit: (data) => {
-    renderLoading(true, SUBMIT_CARD_BUTTON);
-
-    api.addCard(data)
-      .then((cardData) => {
-        cardList.addItem(createCard(cardData));
-        renderLoading(false, SUBMIT_CARD_BUTTON);
-        newCardPopup.close();
-      })
-      .catch((err) => console.log(`Ошибка добавления карточки: ${err}`))
-      .finally(() => {
-        renderLoading(false, SUBMIT_CARD_BUTTON);
-      });
-  },
-});
+const newCardPopup = new PopupWithFormSubmit(CARD_FORM_MODAL_WINDOW);
 newCardPopup.setEventListeners();
+newCardPopup.setSubmitAction(() => {
+  const data = cardFormValidator.getInputValues();
 
-const userInfoPopup = new PopupWithForm({
-  popupElement: EDIT_FORM_MODAL_WINDOW,
-  handleFormSubmit: (data) => {
-    renderLoading(true, SUBMIT_EDIT_BUTTON);
+  renderLoading(true, SUBMIT_CARD_BUTTON);
 
-    api.setUserInfo({
-      name: data.name,
-      about: data.description,
+  api.addCard(data)
+    .then((cardData) => {
+      cardList.addItem(createCard(cardData));
+      renderLoading(false, SUBMIT_CARD_BUTTON);
+      newCardPopup.close();
     })
-      .then((info) => {
-        userInfo.setUserInfo({
-          name: info.name,
-          description: info.about,
-          avatar: info.avatar,
-        });
-        renderLoading(false, SUBMIT_EDIT_BUTTON);
-        userInfoPopup.close();
-      })
-      .catch((err) => console.log(`Ошибка при обновлении информации о пользователе: ${err}`))
-      .finally(() => {
-        renderLoading(false, SUBMIT_EDIT_BUTTON);
-      });
-  },
+    .catch((err) => console.log(`Ошибка добавления карточки: ${err}`))
+    .finally(() => {
+      renderLoading(false, SUBMIT_CARD_BUTTON);
+    });
 });
+
+const userInfoPopup = new PopupWithFormSubmit(EDIT_FORM_MODAL_WINDOW);
 userInfoPopup.setEventListeners();
+userInfoPopup.setSubmitAction(() => {
+  const data = editFormValidator.getInputValues();
 
-const changeAvatarPopup = new PopupWithForm({
-  popupElement: AVATAR_MODAL_WINDOW,
-  handleFormSubmit: (data) => {
-    renderLoading(true, SUBMIT_AVATAR_BUTTON);
+  renderLoading(true, SUBMIT_EDIT_BUTTON);
 
-    api.setUserAvatar({
-      avatar: data.avatar,
-    })
-      .then((info) => {
-        userInfo.setUserInfo({
-          name: info.name,
-          description: info.about,
-          avatar: info.avatar,
-        });
-        renderLoading(false, SUBMIT_AVATAR_BUTTON);
-        changeAvatarPopup.close();
-      })
-      .catch((err) => console.log(`Ошибка при изменении аватара пользователя: ${err}`))
-      .finally(() => {
-        renderLoading(false, SUBMIT_AVATAR_BUTTON);
+  api.setUserInfo({
+    name: data.name,
+    about: data.description,
+  })
+    .then((info) => {
+      userInfo.setUserInfo({
+        name: info.name,
+        description: info.about,
+        avatar: info.avatar,
       });
-  },
+      renderLoading(false, SUBMIT_EDIT_BUTTON);
+      userInfoPopup.close();
+    })
+    .catch((err) => console.log(`Ошибка при обновлении информации о пользователе: ${err}`))
+    .finally(() => {
+      renderLoading(false, SUBMIT_EDIT_BUTTON);
+    });
 });
+
+const changeAvatarPopup = new PopupWithFormSubmit(AVATAR_MODAL_WINDOW);
 changeAvatarPopup.setEventListeners();
+changeAvatarPopup.setSubmitAction(() => {
+  const data = avatarFormValidator.getInputValues();
+
+  renderLoading(true, SUBMIT_AVATAR_BUTTON);
+
+  api.setUserAvatar({
+    avatar: data.avatar,
+  })
+    .then((info) => {
+      userInfo.setUserInfo({
+        name: info.name,
+        description: info.about,
+        avatar: info.avatar,
+      });
+      renderLoading(false, SUBMIT_AVATAR_BUTTON);
+      changeAvatarPopup.close();
+    })
+    .catch((err) => console.log(`Ошибка при изменении аватара пользователя: ${err}`))
+    .finally(() => {
+      renderLoading(false, SUBMIT_AVATAR_BUTTON);
+    });
+});
 
 const headerLogged = new Header({
   headerElement: HEADER_ELEMENT,
@@ -185,7 +184,7 @@ const headerLogged = new Header({
 }, DEFAULT_MENU_CONFIG);
 
 const handleLoginState = () => {
-  if (!auth.getLoginState()) {
+  if (auth.getLoginState()) {
     api.getAppInfo()
       .then(([cardsArray, userData]) => {
         userId = userData._id;

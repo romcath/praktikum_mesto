@@ -9,6 +9,17 @@ export default class FormValidator {
     this._element = popupElement;
   }
 
+  getInputValues() {
+    const inputList = this._element.querySelectorAll('.form__input');
+
+    this._formValues = {};
+    inputList.forEach((input) => {
+      this._formValues[input.name] = input.value;
+    });
+
+    return this._formValues;
+  }
+
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement, inputElement.validationMessage);
