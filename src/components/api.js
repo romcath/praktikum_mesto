@@ -4,28 +4,27 @@ export default class Api {
     this._options = options;
   }
 
-  signup({ email, password }) {
+  signup({ signup, password }) {
     return fetch(`${this._options.baseUrl}/signup`, {
       redirect: 'follow',
       credentials: 'include',
       method: 'POST',
       headers: this._options.headers,
       body: JSON.stringify({
-        email,
-        password,
+        signup, password,
       }),
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
   }
 
-  signin(email, password) {
-    return fetch(`${this._options.baseUrl}/signin`, {
+  login({ login, password }) {
+    return fetch(`${this._options.baseUrl}/login`, {
       redirect: 'follow',
       credentials: 'include',
       method: 'POST',
       headers: this._options.headers,
       body: JSON.stringify({
-        email, password,
+        login, password,
       }),
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));

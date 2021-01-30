@@ -7,6 +7,9 @@ const MAIN_ELEMENT = document.querySelector('.content');
 const PLACES_WRAP = document.querySelector('.places-list');
 const ROOT_ELEMENT = document.querySelector('.root');
 
+const SIGNUP_ELEMENT = document.querySelector('.auth_type_signup');
+const LOGIN_ELEMENT = document.querySelector('.auth_type_login');
+
 // Попапы
 const EDIT_FORM_MODAL_WINDOW = document.querySelector('.popup_type_edit-profile');
 const CARD_FORM_MODAL_WINDOW = document.querySelector('.popup_type_new-card');
@@ -35,8 +38,6 @@ const DESCRIPTION_INPUT_VALUE = document.querySelector('.form__input_type_about'
 
 // Селекторы шаблонов
 const CARD_SELECTOR = '.place-card-template';
-const SIGNUP_SELECTOR = '.signup-template';
-const LOGIN_SELECTOR = '.login-template';
 
 // Объект с селекторами формы
 const DEFAULT_FORM_CONFIG = {
@@ -80,8 +81,8 @@ export {
   OPEN_AVATAR_FORM_BUTTON,
   AVATAR_MODAL_WINDOW,
   HEADER_ELEMENT,
-  SIGNUP_SELECTOR,
-  LOGIN_SELECTOR,
+  SIGNUP_ELEMENT,
+  LOGIN_ELEMENT,
   SUCCESS_MODAL_WINDOW,
   FAIL_MODAL_WINDOW,
   MAIN_ELEMENT,

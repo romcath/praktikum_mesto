@@ -184,7 +184,7 @@ const headerLogged = new Header({
 }, DEFAULT_MENU_CONFIG);
 
 const handleLoginState = () => {
-  if (auth.getLoginState()) {
+  if (!auth.getLoginState()) {
     api.getAppInfo()
       .then(([cardsArray, userData]) => {
         userId = userData._id;

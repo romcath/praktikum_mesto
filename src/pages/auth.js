@@ -2,20 +2,18 @@
 /* eslint-disable no-use-before-define */
 import './auth.css';
 import {
-  SIGNUP_SELECTOR,
-  LOGIN_SELECTOR,
   DEFAULT_FORM_CONFIG,
-  MAIN_ELEMENT,
   FAIL_MODAL_WINDOW,
   HEADER_ELEMENT,
   SUCCESS_MODAL_WINDOW,
   DEFAULT_MENU_CONFIG,
   ROOT_ELEMENT,
+  SIGNUP_ELEMENT,
+  LOGIN_ELEMENT,
 } from '../utils/constants';
 
 import Register from '../components/register';
 import FormValidator from '../components/formValidator';
-import Section from '../components/section';
 import Api from '../components/api';
 import Popup from '../components/popup';
 import Header from '../components/header';
@@ -33,17 +31,20 @@ popupFail.setEventListeners();
 const popupSuccess = new Popup(SUCCESS_MODAL_WINDOW);
 popupSuccess.setEventListeners();
 
-const authList = new Section({
-  container: MAIN_ELEMENT,
-});
+const loginFormValidator = new FormValidator(DEFAULT_FORM_CONFIG, LOGIN_ELEMENT);
+loginFormValidator.enableValidation();
+
+const signupFormValidator = new FormValidator(DEFAULT_FORM_CONFIG, SIGNUP_ELEMENT);
+signupFormValidator.enableValidation();
 
 const headerLogin = new Header({
   headerElement: HEADER_ELEMENT,
   rootElement: ROOT_ELEMENT,
   handleHeaderClick: () => {
-    loginRegister.clearElement();
+    loginRegister.close();
+    signupRegister.open();
     headerLogin.removeEventListener();
-    signup();
+    headerSignup.render(false, 'Войти');
   },
 }, DEFAULT_MENU_CONFIG);
 
@@ -51,35 +52,19 @@ const headerSignup = new Header({
   headerElement: HEADER_ELEMENT,
   rootElement: ROOT_ELEMENT,
   handleHeaderClick: () => {
-    signupRegister.clearElement();
+    signupRegister.close();
+    loginRegister.open();
     headerSignup.removeEventListener();
-    login();
+    headerLogin.render(false, 'Регистрация');
   },
 }, DEFAULT_MENU_CONFIG);
-
-const login = () => {
-  authList.addItem(loginRegister.getSignup());
-
-  const LOGIN_MODAL_WINDOW = document.querySelector('.auth_type_login');
-  const loginFormValidator = new FormValidator(DEFAULT_FORM_CONFIG, LOGIN_MODAL_WINDOW);
-  loginFormValidator.enableValidation();
-
-  headerLogin.render(false, 'Регистрация');
-};
-
-const signup = () => {
-  authList.addItem(signupRegister.getSignup());
-
-  const SIGNUP_MODAL_WINDOW = document.querySelector('.auth_type_signup');
-  const signupFormValidator = new FormValidator(DEFAULT_FORM_CONFIG, SIGNUP_MODAL_WINDOW);
-  signupFormValidator.enableValidation();
-
-  headerSignup.render(false, 'Войти');
-};
+headerSignup.render(false, 'Войти');
 
 const signupRegister = new Register({
-  signupSelector: SIGNUP_SELECTOR,
-  handleFormSubmit: (data) => {
+  authElement: SIGNUP_ELEMENT,
+  handleFormSubmit: () => {
+    const data = signupFormValidator.getInputValues();
+
     api.signup(data)
       .then(() => {
         popupSuccess.open();
@@ -92,15 +77,20 @@ const signupRegister = new Register({
       });
   },
   handleLinkClick: () => {
-    signupRegister.clearElement();
-    login();
+    signupRegister.close();
+    loginRegister.open();
+    headerLogin.render(false, 'Регистрация');
   },
 });
 
+signupRegister.setEventListeners();
+
 const loginRegister = new Register({
-  signupSelector: LOGIN_SELECTOR,
-  handleFormSubmit: (data) => {
-    api.signin(data)
+  authElement: LOGIN_ELEMENT,
+  handleFormSubmit: () => {
+    const data = loginFormValidator.getInputValues();
+
+    api.login(data)
       .then(() => {
         localStorage.setItem('loginState', 'true');
         window.location.replace('./index.html');
@@ -111,9 +101,9 @@ const loginRegister = new Register({
       });
   },
   handleLinkClick: () => {
-    loginRegister.clearElement();
-    signup();
+    loginRegister.close();
+    signupRegister.open();
+    headerSignup.render(false, 'Войти');
   },
 });
-
-signup();
+loginRegister.setEventListeners();
