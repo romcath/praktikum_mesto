@@ -23,7 +23,7 @@
     <h3 class="auth__title">Регистрация</h3>
     <form class="form" name="signup" novalidate>
       <label class="form__label">
-        <input type="email" id="signup-email" name="signup" class="form__input form__input_type_auth"
+        <input type="email" id="signup-email" name="email" class="form__input form__input_type_auth"
           placeholder="Email" pattern="^[\w\-\.]{2,}@([\w\-]{1,63}\.)*[\w\-]{2,63}\.[a-z]{2,}$" required>
         <span class="form__error form__error_type_email" id="signup-email-error"></span>
       </label>
@@ -43,7 +43,7 @@
     <h3 class="auth__title">Вход</h3>
     <form class="form" name="login" novalidate>
       <label class="form__label">
-        <input type="email" id="login-email" name="login" class="form__input form__input_type_auth" placeholder="Email"
+        <input type="email" id="login-email" name="email" class="form__input form__input_type_auth" placeholder="Email"
           pattern="^[\w\-\.]{2,}@([\w\-]{1,63}\.)*[\w\-]{2,63}\.[a-z]{2,}$" required>
         <span class="form__error form__error_type_email" id="login-email-error"></span>
       </label>
@@ -57,13 +57,6 @@
     <p class="auth__text">Ещё не зарегистрированы?
       <a class="auth__link" href="#">Регистрация</a>
     </p>
-  </div>
-  <div class="popup popup_type_success">
-    <div class="popup__wrapper">
-      <button type="button" class="button popup__close" aria-label="Закрыть окно"></button>
-      <div class="popup__icon popup__icon_type_success"></div>
-      <h3 class="popup__title">Вы успешно зарегистрировались!</h3>
-    </div>
   </div>
   <div class="popup popup_type_fail">
     <div class="popup__wrapper">

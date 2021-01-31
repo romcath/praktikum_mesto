@@ -24,6 +24,7 @@ import {
   HEADER_ELEMENT,
   DEFAULT_MENU_CONFIG,
   ROOT_ELEMENT,
+  SUCCESS_MODAL_WINDOW,
 } from '../utils/constants';
 import { renderLoading } from '../utils/utils';
 
@@ -33,6 +34,7 @@ import Card from '../components/card';
 import FormValidator from '../components/formValidator';
 import Section from '../components/section';
 import UserInfo from '../components/user-info';
+import Popup from '../components/popup';
 import PopupWithImage from '../components/popupWithImage';
 import PopupWithFormSubmit from '../components/popupWithFormSubmit';
 import Header from '../components/header';
@@ -43,10 +45,12 @@ let userId = null;
 // Инициализация классов
 const auth = new Auth();
 
+const popupSuccess = new Popup(SUCCESS_MODAL_WINDOW);
+popupSuccess.setEventListeners();
+
 const api = new Api({
-  baseUrl: 'https://nomoreparties.co/cohort7',
+  baseUrl: 'http://localhost:3000',
   headers: {
-    authorization: '5547747b-c129-4e77-93a7-481a2a2f0413',
     'Content-Type': 'application/json',
   },
 });
@@ -184,7 +188,7 @@ const headerLogged = new Header({
 }, DEFAULT_MENU_CONFIG);
 
 const handleLoginState = () => {
-  if (!auth.getLoginState()) {
+  if (auth.getLoginState()) {
     api.getAppInfo()
       .then(([cardsArray, userData]) => {
         userId = userData._id;
@@ -198,6 +202,7 @@ const handleLoginState = () => {
         cardList.renderItems(cardsArray);
 
         headerLogged.render(true, 'Выйти', userData.email);
+        popupSuccess.open();
       })
       .catch((err) => console.log(`Ошибка загрузки данных: ${err}`));
   } else {

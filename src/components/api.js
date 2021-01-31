@@ -4,27 +4,27 @@ export default class Api {
     this._options = options;
   }
 
-  signup({ signup, password }) {
+  signup({ email, password }) {
     return fetch(`${this._options.baseUrl}/signup`, {
       redirect: 'follow',
       credentials: 'include',
       method: 'POST',
       headers: this._options.headers,
       body: JSON.stringify({
-        signup, password,
+        email, password,
       }),
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
   }
 
-  login({ login, password }) {
-    return fetch(`${this._options.baseUrl}/login`, {
+  signin({ email, password }) {
+    return fetch(`${this._options.baseUrl}/signin`, {
       redirect: 'follow',
       credentials: 'include',
       method: 'POST',
       headers: this._options.headers,
       body: JSON.stringify({
-        login, password,
+        email, password,
       }),
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
@@ -48,8 +48,8 @@ export default class Api {
 
   getCardList() {
     return fetch(`${this._options.baseUrl}/cards`, {
-      // redirect: 'follow',
-      // credentials: 'include',
+      redirect: 'follow',
+      credentials: 'include',
       headers: this._options.headers,
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
@@ -57,8 +57,8 @@ export default class Api {
 
   getUserInfo() {
     return fetch(`${this._options.baseUrl}/users/me`, {
-      // redirect: 'follow',
-      // credentials: 'include',
+      redirect: 'follow',
+      credentials: 'include',
       headers: this._options.headers,
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
@@ -67,8 +67,8 @@ export default class Api {
   changeLikeCard(cardId, like) {
     return fetch(`${this._options.baseUrl}/cards/like/${cardId}`, {
       method: like ? 'DELETE' : 'PUT',
-      // redirect: 'follow',
-      // credentials: 'include',
+      redirect: 'follow',
+      credentials: 'include',
       headers: this._options.headers,
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
@@ -77,8 +77,8 @@ export default class Api {
   removeCard(cardId) {
     return fetch(`${this._options.baseUrl}/cards/${cardId}`, {
       method: 'DELETE',
-      // redirect: 'follow',
-      // credentials: 'include',
+      redirect: 'follow',
+      credentials: 'include',
       headers: this._options.headers,
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
@@ -87,8 +87,8 @@ export default class Api {
   addCard({ name, link }) {
     return fetch(`${this._options.baseUrl}/cards`, {
       method: 'POST',
-      // redirect: 'follow',
-      // credentials: 'include',
+      redirect: 'follow',
+      credentials: 'include',
       headers: this._options.headers,
       body: JSON.stringify({
         name,
@@ -101,8 +101,8 @@ export default class Api {
   setUserInfo({ name, about }) {
     return fetch(`${this._options.baseUrl}/users/me`, {
       method: 'PATCH',
-      // redirect: 'follow',
-      // credentials: 'include',
+      redirect: 'follow',
+      credentials: 'include',
       headers: this._options.headers,
       body: JSON.stringify({
         name,
@@ -115,8 +115,8 @@ export default class Api {
   setUserAvatar({ avatar }) {
     return fetch(`${this._options.baseUrl}/users/me/avatar`, {
       method: 'PATCH',
-      // redirect: 'follow',
-      // credentials: 'include',
+      redirect: 'follow',
+      credentials: 'include',
       headers: this._options.headers,
       body: JSON.stringify({
         avatar,

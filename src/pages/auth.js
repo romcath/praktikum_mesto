@@ -5,7 +5,6 @@ import {
   DEFAULT_FORM_CONFIG,
   FAIL_MODAL_WINDOW,
   HEADER_ELEMENT,
-  SUCCESS_MODAL_WINDOW,
   DEFAULT_MENU_CONFIG,
   ROOT_ELEMENT,
   SIGNUP_ELEMENT,
@@ -19,17 +18,14 @@ import Popup from '../components/popup';
 import Header from '../components/header';
 
 const api = new Api({
-  baseUrl: 'https://nomoreparties.co/cohort7',
+  baseUrl: 'http://localhost:3000',
   headers: {
-    authorization: '5547747b-c129-4e77-93a7-481a2a2f0413',
     'Content-Type': 'application/json',
   },
 });
 
 const popupFail = new Popup(FAIL_MODAL_WINDOW);
 popupFail.setEventListeners();
-const popupSuccess = new Popup(SUCCESS_MODAL_WINDOW);
-popupSuccess.setEventListeners();
 
 const loginFormValidator = new FormValidator(DEFAULT_FORM_CONFIG, LOGIN_ELEMENT);
 loginFormValidator.enableValidation();
@@ -67,9 +63,15 @@ const signupRegister = new Register({
 
     api.signup(data)
       .then(() => {
-        popupSuccess.open();
-        localStorage.setItem('loginState', 'true');
-        window.location.replace('./index.html');
+        api.signin(data)
+          .then(() => {
+            localStorage.setItem('loginState', 'true');
+            window.location.replace('./index.html');
+          })
+          .catch((err) => {
+            popupFail.open();
+            console.log(`Ошибка входа пользователя: ${err}`);
+          });
       })
       .catch((err) => {
         popupFail.open();
@@ -90,7 +92,7 @@ const loginRegister = new Register({
   handleFormSubmit: () => {
     const data = loginFormValidator.getInputValues();
 
-    api.login(data)
+    api.signin(data)
       .then(() => {
         localStorage.setItem('loginState', 'true');
         window.location.replace('./index.html');
