@@ -1,5 +1,6 @@
 /* eslint-disable no-shadow */
 /* eslint-disable no-use-before-define */
+/* eslint-disable no-extra-boolean-cast */
 import './index.css';
 import {
   PLACES_WRAP,
@@ -77,6 +78,7 @@ const createCard = (data) => {
     handleLikeClick: (card) => {
       api.changeLikeCard(card.id(), card.isLiked())
         .then((data) => {
+          console.log(data);
           card.setLike(data);
         })
         .catch((err) => console.log(`Ошибка изменения статуса лайка: ${err}`));
@@ -202,7 +204,11 @@ const handleLoginState = () => {
         cardList.renderItems(cardsArray);
 
         headerLogged.render(true, 'Выйти', userData.email);
-        popupSuccess.open();
+
+        if (!!localStorage.getItem('signupState')) {
+          localStorage.removeItem('signupState');
+          popupSuccess.open();
+        }
       })
       .catch((err) => console.log(`Ошибка загрузки данных: ${err}`));
   } else {

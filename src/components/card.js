@@ -4,7 +4,7 @@ export default class Card {
     this._link = cardData.link;
     this._likes = cardData.likes;
     this._userId = cardData.userId;
-    this._ownerId = cardData.owner._id;
+    this._ownerId = cardData.owner;
     this._cardId = cardData._id;
     this._cardSelector = cardSelector;
 
@@ -44,7 +44,6 @@ export default class Card {
   _updateLikes() {
     this._element.querySelector('.place-card__like-counter').textContent = `${this._likes.length}`;
     this._likeButton = this._element.querySelector('.place-card__like-icon');
-
     if (this.isLiked()) {
       this._likeButton.classList.add('place-card__like-icon_liked');
     } else {
@@ -67,7 +66,7 @@ export default class Card {
   }
 
   isLiked() {
-    return Boolean(this._likes.find((item) => item._id === this._userId));
+    return Boolean(this._likes.find((item) => item === this._userId));
   }
 
   setLike(data) {

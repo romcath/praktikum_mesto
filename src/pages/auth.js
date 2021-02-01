@@ -66,6 +66,7 @@ const signupRegister = new Register({
         api.signin(data)
           .then(() => {
             localStorage.setItem('loginState', 'true');
+            localStorage.setItem('signupState', 'true');
             window.location.replace('./index.html');
           })
           .catch((err) => {
