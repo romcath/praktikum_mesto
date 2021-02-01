@@ -78,7 +78,6 @@ const createCard = (data) => {
     handleLikeClick: (card) => {
       api.changeLikeCard(card.id(), card.isLiked())
         .then((data) => {
-          console.log(data);
           card.setLike(data);
         })
         .catch((err) => console.log(`Ошибка изменения статуса лайка: ${err}`));
