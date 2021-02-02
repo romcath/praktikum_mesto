@@ -50,7 +50,7 @@ const popupSuccess = new Popup(SUCCESS_MODAL_WINDOW);
 popupSuccess.setEventListeners();
 
 const api = new Api({
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'http://api.mesto.cf',
   headers: {
     'Content-Type': 'application/json',
   },
