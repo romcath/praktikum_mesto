@@ -26,6 +26,7 @@ import {
   DEFAULT_MENU_CONFIG,
   ROOT_ELEMENT,
   SUCCESS_MODAL_WINDOW,
+  SERVER_URL,
 } from '../utils/constants';
 import { renderLoading } from '../utils/utils';
 
@@ -50,7 +51,7 @@ const popupSuccess = new Popup(SUCCESS_MODAL_WINDOW);
 popupSuccess.setEventListeners();
 
 const api = new Api({
-  baseUrl: 'http://api.mesto.cf',
+  baseUrl: SERVER_URL,
   headers: {
     'Content-Type': 'application/json',
   },

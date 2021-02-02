@@ -1,6 +1,8 @@
 // Константы
 const ESC_KEYCODE = 27;
 
+const SERVER_URL = 'https://api.mesto.cf';
+
 // Обёртки
 const HEADER_ELEMENT = document.querySelector('.header');
 const MAIN_ELEMENT = document.querySelector('.content');
@@ -88,4 +90,5 @@ export {
   MAIN_ELEMENT,
   DEFAULT_MENU_CONFIG,
   ROOT_ELEMENT,
+  SERVER_URL,
 };

@@ -9,6 +9,7 @@ import {
   ROOT_ELEMENT,
   SIGNUP_ELEMENT,
   LOGIN_ELEMENT,
+  SERVER_URL,
 } from '../utils/constants';
 
 import Register from '../components/register';
@@ -18,7 +19,7 @@ import Popup from '../components/popup';
 import Header from '../components/header';
 
 const api = new Api({
-  baseUrl: 'http://api.mesto.cf',
+  baseUrl: SERVER_URL,
   headers: {
     'Content-Type': 'application/json',
   },
