@@ -19,6 +19,8 @@
 ## Демо
 [mesto.cf](https://mesto.cf)
 
+![alt-текст](https://github.com/romcath/mesto/blob/master/src/images/demo.jpg "Сервис Место")
+
 
 ## Установка проекта
 Клонируйте репозиторий на компьютер:
